@@ -71,29 +71,24 @@ namespace DebtEliminator
             //{
             //    Padding_Title += " ";
             //}
-            
-            //    Console.WriteLine(Board_Char + Padding_Title + Board_Char);
-            //    Console.WriteLine(new string(Board_Char, Width));
-            //}
         }
 
-        static void Print_Context_Box(string Header, char Board_Char)
-        {
-            int ConsoleWidth = Get_Console_Width();
-            int BoxWidth = Math.Min(Header.Length + 4, ConsoleWidth - 2);
 
-            Print_Context_Text(new string(Board_Char, BoxWidth));
-            string PaddingHeader = " " + Header + " ";
 
-            PaddingHeader = PaddingHeader.PadRight(BoxWidth - 2);
-            Print_Context_Text(Board_Char + PaddingHeader + Board_Char);
 
-            Print_Context_Text(new string(Board_Char, BoxWidth));
 
-            //Console.WriteLine(new string('-', Width));
-            //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
-            //Console.WriteLine(new string('-', Width));
-        }
+
+
+        //    Console.WriteLine(Board_Char + Padding_Title + Board_Char);
+        //    Console.WriteLine(new string(Board_Char, Width));
+        //}
+
+        //static void Print_Context_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('-', Width));
+        //    Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
+        //    Console.WriteLine(new string('-', Width));
+        //}
 
         //static void Print_OutPut_Box(string Header, int Width)
         //{
