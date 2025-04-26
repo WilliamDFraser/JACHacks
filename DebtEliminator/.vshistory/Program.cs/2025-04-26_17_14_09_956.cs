@@ -19,11 +19,13 @@ namespace DebtEliminator
 
         do
         {
-
-
+<<<<<<< HEAD
+    
+            Console.WriteLine($"Please enter the data for debt {i + 1}");
+=======
                 i++;
             Console.WriteLine($"Please enter the data for debt {i}");
-
+>>>>>>> f029b473bcbb1f1ca867baea6ef02423da336053
             Console.Write("Name of debt:");
             name = Console.ReadLine();
             Console.Write("Ammount left to pay:");
@@ -43,7 +45,7 @@ namespace DebtEliminator
             }
             //Call debt type constructor
             Console.WriteLine("Would you like to add another debt? (y/n)");
-            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N')) //fixed to upper
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
             {
                 Console.WriteLine("Please input a valid answer");
@@ -66,6 +68,8 @@ namespace DebtEliminator
         // int padding = (consoleWidth - text.Length) / 2;
         // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
         // Console.WriteLine(text.PadLeft(padding + text.Length));
+
+        Snowball();
         static int Get_Console_Width()
         {
             return Console.WindowWidth - 1;
