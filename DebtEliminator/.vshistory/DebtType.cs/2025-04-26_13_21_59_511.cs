@@ -45,32 +45,16 @@ namespace DebtEliminator
                 }
             }
         }
-        public decimal IntrestRate
+        public string IntrestRate
         {
-            get { return _intrestRate; }
+            get { return _type; }
 
             set
             {
-                if (value < 0)
-                {
-                    _intrestRate = value;
-                }
-            }
-        }
-        public decimal MinimumPayment
-        {
-            get { return _minimumPayment; }
 
-            set
-            {
-                if (value < 0)
-                {
-                    _minimumPayment = value;
-                }
+                _type = value;
             }
         }
 
-
-        
     }
 }

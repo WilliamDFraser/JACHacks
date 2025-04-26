@@ -51,10 +51,8 @@ namespace DebtEliminator
 
             set
             {
-                if (value < 0)
-                {
-                    _intrestRate = value;
-                }
+
+                _intrestRate = value;
             }
         }
         public decimal MinimumPayment
@@ -63,14 +61,10 @@ namespace DebtEliminator
 
             set
             {
-                if (value < 0)
-                {
-                    _minimumPayment = value;
-                }
+
+                _minimumPayment = value;
             }
         }
 
-
-        
     }
 }
