@@ -17,13 +17,6 @@ namespace DebtEliminator
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
 
-
-            //string Name = Print_Input_Box("Name of debt:", Min_Width: 40);
-            //decimal amount;
-            //while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
-            //{
-            //    Console.WriteLine("Invalid input! Please enter a positive number.");
-            //}
             do
             {
 
@@ -97,7 +90,6 @@ namespace DebtEliminator
             // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
             // Console.WriteLine(text.PadLeft(padding + text.Length));
         }
-
         static int Get_Console_Width()
         {
             return Console.WindowWidth - 1;

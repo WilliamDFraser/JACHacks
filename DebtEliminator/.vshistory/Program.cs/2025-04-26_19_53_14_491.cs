@@ -17,68 +17,66 @@ namespace DebtEliminator
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
 
-
-            //string Name = Print_Input_Box("Name of debt:", Min_Width: 40);
-            //decimal amount;
-            //while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
-            //{
-            //    Console.WriteLine("Invalid input! Please enter a positive number.");
-            //}
             do
             {
-
-
-                i++;
-                int postions = -6;
-                Print_Context_Text($"Please enter the data for debt {i}");
-
-                Print_Context_Text("Name of debt:");
-                SetCurcorPoition(postions);
-                name = Console.ReadLine();
-                Print_Context_Text("Ammount left to pay:");
-                postions += 2;
-                SetCurcorPoition(postions);
-                while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
+                string Name = Print_Input_Box("Name of debt:", Min_Width: 40);
+                decimal amount;
+                while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
                 {
-                    postions += 2;
-                    Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
-                }
-                postions += 2;
-                Print_Context_Text("interest rate:");
-                SetCurcorPoition(postions);
-                while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
-
-                {
-
-                    postions += 2;
-
-                    Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
-                }
-                postions += 2;
-                Print_Context_Text("Minimum Monthly Payment:");
-                SetCurcorPoition(postions);
-                while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
-                {
-                    postions += 2;
-                    Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
-                }
-                postions += 2;
-                //Call debt type constructor
-
-                Print_Context_Text("Would you like to add another debt? (y/n)");
-                SetCurcorPoition(postions);
-                while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
-
-                {
-                    postions += 2;
-                    Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
+                    Console.WriteLine("Invalid input! Please enter a positive number.");
                 }
 
-            } while (input == 'Y');
+            //    i++;
+            //    int postions = -6;
+            //    Print_Context_Text($"Please enter the data for debt {i}");
+
+            //    Print_Context_Text("Name of debt:");
+            //    SetCurcorPoition(postions);
+            //    name = Console.ReadLine();
+            //    Print_Context_Text("Ammount left to pay:");
+            //    postions += 2;
+            //    SetCurcorPoition(postions);
+            //    while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
+            //    {
+            //        postions += 2;
+            //        Print_Context_Text("Please input a valid answer");
+            //        SetCurcorPoition(postions);
+            //    }
+            //    postions += 2;
+            //    Print_Context_Text("interest rate:");
+            //    SetCurcorPoition(postions);
+            //    while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
+
+            //    {
+
+            //        postions += 2;
+
+            //        Print_Context_Text("Please input a valid answer");
+            //        SetCurcorPoition(postions);
+            //    }
+            //    postions += 2;
+            //    Print_Context_Text("Minimum Monthly Payment:");
+            //    SetCurcorPoition(postions);
+            //    while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
+            //    {
+            //        postions += 2;
+            //        Print_Context_Text("Please input a valid answer");
+            //        SetCurcorPoition(postions);
+            //    }
+            //    postions += 2;
+            //    //Call debt type constructor
+
+            //    Print_Context_Text("Would you like to add another debt? (y/n)");
+            //    SetCurcorPoition(postions);
+            //    while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
+
+            //    {
+            //        postions += 2;
+            //        Print_Context_Text("Please input a valid answer");
+            //        SetCurcorPoition(postions);
+            //    }
+
+            //} while (input == 'Y');
 
             Print_Context_Box("Please select one from below : ", '-');
             Print_Context_Text("1.___");
@@ -97,7 +95,7 @@ namespace DebtEliminator
             // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
             // Console.WriteLine(text.PadLeft(padding + text.Length));
         }
-
+        
         static int Get_Console_Width()
         {
             return Console.WindowWidth - 1;
