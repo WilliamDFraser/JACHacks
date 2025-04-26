@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\Suheng\\OneDrive - John Abbott College\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\Suheng\\OneDrive - John Abbott College\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Suheng\\OneDrive - John Abbott College\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj",
-        "projectName": "DebtEliminator",
-        "projectPath": "C:\\Users\\Suheng\\OneDrive - John Abbott College\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj",
-        "packagesPath": "C:\\Users\\Suheng\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Suheng\\OneDrive - John Abbott College\\Desktop\\JACHacks\\DebtEliminator\\obj\\",
-=======
     "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj": {}
   },
   "projects": {
@@ -25,15 +12,9 @@
         "projectPath": "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj",
         "packagesPath": "C:\\Users\\islam\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\obj\\",
->>>>>>> 324ee99c460361941e45fd88d54675bc16fe79cd
         "projectStyle": "PackageReference",
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\Suheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
           "C:\\Users\\islam\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 324ee99c460361941e45fd88d54675bc16fe79cd
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,12 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-<<<<<<< HEAD
-        },
-        "SdkAnalysisLevel": "9.0.100"
-=======
         }
->>>>>>> 324ee99c460361941e45fd88d54675bc16fe79cd
       },
       "frameworks": {
         "net8.0": {
@@ -84,11 +60,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
->>>>>>> 324ee99c460361941e45fd88d54675bc16fe79cd
         }
       }
     }
