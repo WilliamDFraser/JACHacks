@@ -1,5 +1,4 @@
 ﻿using System.Xml.Serialization;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DebtEliminator
 {
@@ -31,9 +30,6 @@ namespace DebtEliminator
             Print_Context_Text("Here's the context of output : ");
             Print_Bottom_Border('=');
 
-            int padding = (consoleWidth - text.Length) / 2;
-            Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
-            Console.WriteLine(text.PadLeft(padding + text.Length));
 
             Snowball();
         }
