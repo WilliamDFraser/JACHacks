@@ -4,6 +4,9 @@
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
+            Console.WriteLine("");
+=======
             Console.WriteLine("DebtEliminator");
         }
         static void Snowball()
@@ -21,6 +24,7 @@
         static void Consolidation()
         {
             Console.WriteLine("Would you like to learn about debt consolidation");
+>>>>>>> 324ee99c460361941e45fd88d54675bc16fe79cd
         }
     }
 }

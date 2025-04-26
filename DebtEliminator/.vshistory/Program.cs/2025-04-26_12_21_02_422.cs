@@ -8,11 +8,9 @@
         }
         static void Snowball()
         {
-            char input = 'D';
+            string input = string.Empty;
             Console.WriteLine("Would you like to learn about the Snowball Method?");
-            while (!char.TryParse(Console.ReadLine, out input))
-            {
-            }
+            while (!string.Tr)
         }
         static void Avalanche()
         {
