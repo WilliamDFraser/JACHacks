@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
+  "dgSpecHash": "N1p30/fYCyc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Suheng\\OneDrive - John Abbott College\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj",
+=======
   "dgSpecHash": "ICd5lZblENk=",
   "success": true,
   "projectFilePath": "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\DebtEliminator.csproj",
+>>>>>>> 324ee99c460361941e45fd88d54675bc16fe79cd
   "expectedPackageFiles": [],
   "logs": []
 }
