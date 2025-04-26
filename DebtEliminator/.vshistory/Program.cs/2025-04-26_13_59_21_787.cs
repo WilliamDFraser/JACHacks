@@ -40,7 +40,7 @@
         static void Print_Context_Box(string Header, int Width)
         {
             Console.WriteLine(new string('-', Width));
-            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
+            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |";
             Console.WriteLine(new string('-', Width));
         }
 
