@@ -6,22 +6,9 @@
         {
 <<<<<<< HEAD
             Print_Centered_Title("Debt Eliminator", '*', 60);
-            Console.WriteLine("\n\n\n");
-
-            Print_Context_Box("Please select one from below : ", 60);
-            Console.WriteLine("1.___");
-            Console.WriteLine("2.___");
-            Console.WriteLine("3.___");
-
-
-            Print_Contex_Box(60);
-            Console.WriteLine("\n\n\n");
-
-            Print_OutPut_Box("Results : ");
-            Console.WriteLine("Here's the context of output : ");
-            Print_Bottom_Border(60);
 
 =======
+            Console.WriteLine("DebtEliminator");
             Snowball();
 >>>>>>> 012f18f10179538348e65e2cb063b7367695e894
         }
@@ -40,22 +27,6 @@
             Console.WriteLine(Board_Char + Padding_Title + Board_Char);
             Console.WriteLine(new string(Board_Char, Width));
         }
-
-        static void Print_Context_Box(string Header, int Width)
-        {
-            Console.WriteLine(new string('-', Width));
-            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |";
-            Console.WriteLine(new string('-', Width));
-        }
-
-        static void Print_OutPut_Box(string Header, int Width)
-        {
-            Console.WriteLine(new string('=', Width));
-            Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
-            Console.WriteLine(new string('=', Width));
-        }
-
-
 
         static void Snowball()
         {
