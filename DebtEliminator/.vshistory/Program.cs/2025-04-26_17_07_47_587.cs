@@ -19,11 +19,7 @@ namespace DebtEliminator
 
         do
         {
-
-
-                i++;
-            Console.WriteLine($"Please enter the data for debt {i}");
-
+            Console.WriteLine($"Please enter the data for debt {i + 1}");
             Console.Write("Name of debt:");
             name = Console.ReadLine();
             Console.Write("Ammount left to pay:");
@@ -48,7 +44,7 @@ namespace DebtEliminator
             {
                 Console.WriteLine("Please input a valid answer");
             }
-        } while (input == 'Y');
+        } while (input == 'y');
 
         Print_Context_Box("Please select one from below : ", '-');
         Console.WriteLine("1.___");
@@ -134,18 +130,14 @@ namespace DebtEliminator
             //Console.WriteLine(new string('-', Width));
         }
 
-            //static void Print_OutPut_Box(string Header, int Width)
-            //{
-            //    Console.WriteLine(new string('=', Width));
-            //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
-            //    Console.WriteLine(new string('=', Width));
-            //}
+        //static void Print_OutPut_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('=', Width));
+        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+        //    Console.WriteLine(new string('=', Width));
+        //}
 
 
-            static void Postition() 
-            {
-
-            }
 
 
         static void Snowball()
@@ -158,11 +150,11 @@ namespace DebtEliminator
             Console.WriteLine("Once the smallest is gone it will tackle the next one");
             Console.WriteLine();
             Console.WriteLine("Would you like to continue with the Snowball Method? (y/n)");
-            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
             {
                 Console.WriteLine("Please input a valid answer");
             }
-            if (input == 'N')
+            if (input == 'n')
                 return;
             else
             {
@@ -181,11 +173,11 @@ namespace DebtEliminator
             Console.WriteLine("Once the smallest is gone it will tackle the next one");
             Console.WriteLine();
             Console.WriteLine("Would you like to continue with the Avalanche Method? (y/n)");
-            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
             {
                 Console.WriteLine("Please input a valid answer");
             }
-            if (input == 'N')
+            if (input == 'n')
                 return;
             else
             {
@@ -201,11 +193,11 @@ namespace DebtEliminator
             Console.WriteLine("Usually with a lower interest rate");
             Console.WriteLine();
             Console.WriteLine("Would you like to continue with the Consolidation Method? (y/n)");
-            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
             {
                 Console.WriteLine("Please input a valid answer");
             }
-            if (input == 'N')
+            if (input == 'n')
                 return;
             else
             {

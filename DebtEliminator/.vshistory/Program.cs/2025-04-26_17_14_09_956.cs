@@ -19,11 +19,13 @@ namespace DebtEliminator
 
         do
         {
-
-
+<<<<<<< HEAD
+    
+            Console.WriteLine($"Please enter the data for debt {i + 1}");
+=======
                 i++;
             Console.WriteLine($"Please enter the data for debt {i}");
-
+>>>>>>> f029b473bcbb1f1ca867baea6ef02423da336053
             Console.Write("Name of debt:");
             name = Console.ReadLine();
             Console.Write("Ammount left to pay:");
