@@ -6,20 +6,8 @@ namespace DebtEliminator
     {
         static void Main(string[] args)
         {
-            int i = 0;
-
             Print_Centered_Title("Debt Eliminator", '*', 60);
             Console.WriteLine("\n\n\n");
-
-            do
-            {
-                Console.WriteLine($"Please enter the data for debt {i + 1}");
-                Console.Write("Name of debt:");
-                Console.Write("Ammount left to pay:");
-                Console.Write("interest rate:");
-                Console.Write("Minimum Payment:");
-                Console.ReadLine();
-            } while (i != 2);
 
             Print_Context_Box("Please select one from below : ", 60);
             Console.WriteLine("1.___");
@@ -88,12 +76,6 @@ namespace DebtEliminator
             {
                 Console.WriteLine("Please input a valid answer");
             }
-            if (input == 'n')
-                return;
-            else
-            {
-
-            }
 
         }
         static void Avalanche()
@@ -111,12 +93,6 @@ namespace DebtEliminator
             {
                 Console.WriteLine("Please input a valid answer");
             }
-            if (input == 'n')
-                return;
-            else
-            {
-
-            }
         }
         static void Consolidation()
         {
@@ -130,12 +106,6 @@ namespace DebtEliminator
             while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
             {
                 Console.WriteLine("Please input a valid answer");
-            }
-            if (input == 'n')
-                return;
-            else
-            {
-
             }
         }
     }

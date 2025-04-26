@@ -7,7 +7,6 @@ namespace DebtEliminator
         static void Main(string[] args)
         {
             int i = 0;
-
             Print_Centered_Title("Debt Eliminator", '*', 60);
             Console.WriteLine("\n\n\n");
 

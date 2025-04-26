@@ -1,25 +1,11 @@
-﻿using System.Xml.Serialization;
-
-namespace DebtEliminator
+﻿namespace DebtEliminator
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int i = 0;
-
             Print_Centered_Title("Debt Eliminator", '*', 60);
             Console.WriteLine("\n\n\n");
-
-            do
-            {
-                Console.WriteLine($"Please enter the data for debt {i + 1}");
-                Console.Write("Name of debt:");
-                Console.Write("Ammount left to pay:");
-                Console.Write("interest rate:");
-                Console.Write("Minimum Payment:");
-                Console.ReadLine();
-            } while (i != 2);
 
             Print_Context_Box("Please select one from below : ", 60);
             Console.WriteLine("1.___");
@@ -27,10 +13,10 @@ namespace DebtEliminator
             Console.WriteLine("3.___");
 
 
-            Print_Bottom_Border(60);
+            Print_Contex_Box(60);
             Console.WriteLine("\n\n\n");
 
-            Print_OutPut_Box("Results : ", 60);
+            Print_OutPut_Box("Results : ");
             Console.WriteLine("Here's the context of output : ");
             Print_Bottom_Border(60);
 
@@ -56,7 +42,7 @@ namespace DebtEliminator
         static void Print_Context_Box(string Header, int Width)
         {
             Console.WriteLine(new string('-', Width));
-            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
+            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |";
             Console.WriteLine(new string('-', Width));
         }
 
@@ -65,11 +51,6 @@ namespace DebtEliminator
             Console.WriteLine(new string('=', Width));
             Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
             Console.WriteLine(new string('=', Width));
-        }
-
-        static void Print_Bottom_Border(int Width)
-        {
-            Console.WriteLine(new string('-', Width));
         }
 
 
@@ -88,12 +69,6 @@ namespace DebtEliminator
             {
                 Console.WriteLine("Please input a valid answer");
             }
-            if (input == 'n')
-                return;
-            else
-            {
-
-            }
 
         }
         static void Avalanche()
@@ -111,12 +86,6 @@ namespace DebtEliminator
             {
                 Console.WriteLine("Please input a valid answer");
             }
-            if (input == 'n')
-                return;
-            else
-            {
-
-            }
         }
         static void Consolidation()
         {
@@ -130,12 +99,6 @@ namespace DebtEliminator
             while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
             {
                 Console.WriteLine("Please input a valid answer");
-            }
-            if (input == 'n')
-                return;
-            else
-            {
-
             }
         }
     }
