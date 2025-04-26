@@ -1,9 +1,11 @@
-
-using System.Xml.Serialization;
+<<<<<<< HEAD
+﻿using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
-
+namespace DebtEliminator
+=======
 ﻿namespace DebtEliminator
+>>>>>>> aedee9926f56c6e8129c3de5632046057f6a5f0e
 {
     internal class Program
     {
@@ -30,7 +32,7 @@ using static System.Net.Mime.MediaTypeNames;
                 {
                     Console.WriteLine("Please input a valid answer");
                 }
-                Console.Write("interest rate percentage:");
+                Console.Write("interest rate:");
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
                 {
                     Console.WriteLine("Please input a valid answer");
@@ -61,9 +63,9 @@ using static System.Net.Mime.MediaTypeNames;
                 Print_Context_Text("Here's the context of output : ");
                 Print_Bottom_Border('=');
 
-            //int padding = (consoleWidth - text.Length) / 2;
-            //Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
-            //Console.WriteLine(text.PadLeft(padding + text.Length));
+            int padding = (consoleWidth - text.Length) / 2;
+            Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
+            Console.WriteLine(text.PadLeft(padding + text.Length));
 
                 Snowball();
         static int Get_Console_Width()

@@ -30,7 +30,7 @@ using static System.Net.Mime.MediaTypeNames;
                 {
                     Console.WriteLine("Please input a valid answer");
                 }
-                Console.Write("interest rate percentage:");
+                Console.Write("interest rate:");
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
                 {
                     Console.WriteLine("Please input a valid answer");
