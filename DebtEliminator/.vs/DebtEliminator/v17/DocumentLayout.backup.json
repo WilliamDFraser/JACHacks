@@ -41,7 +41,11 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\Program.cs",
               "RelativeToolTip": "Program.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+>>>>>>> ae25768be8307c8c00f85207423ca089076dc786
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-26T15:54:14.932Z",
               "EditorCaption": ""
