@@ -23,7 +23,7 @@ namespace DebtEliminator
             Console.Write("Name of debt:");
             name = Console.ReadLine();
             Console.Write("Ammount left to pay:");
-            while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
+            while (!decimal.TryParse(Console.ReadLine().ToUpper, out ammount) || ammount <= 0)
             {
                 Console.WriteLine("Please input a valid answer");
             }
@@ -39,7 +39,7 @@ namespace DebtEliminator
             }
             //Call debt type constructor
             Console.WriteLine("Would you like to add another debt? (y/n)");
-            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
             {
                 Console.WriteLine("Please input a valid answer");
             }
