@@ -25,23 +25,22 @@ namespace DebtEliminator
                 Print_Context_Text($"Please enter the data for debt {i}");
 
                 Print_Context_Text("Name of debt:");
-                Console.SetCursorPosition((Console.WindowWidth / 2)-1, (Console.WindowHeight / 2) - 6);
-                name = Console.ReadLine();
+            name = Console.ReadLine();
             Print_Context_Text("Ammount left to pay:");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - 4);
+                Console.SetCursorPosition(Console.WindowWidth / 2, 0);
                 while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
             {
                 Print_Context_Text("Please input a valid answer");
             }
             Print_Context_Text("interest rate:");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - 2);
+                Console.SetCursorPosition(Console.WindowWidth / 2, 0);
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
             {
                    
                 Print_Context_Text("Please input a valid answer");
             }
             Print_Context_Text("Minimum Monthly Payment:");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) );
+                Console.SetCursorPosition(Console.WindowWidth / 2, 0);
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
             {
                 Print_Context_Text("Please input a valid answer");
@@ -49,8 +48,7 @@ namespace DebtEliminator
             //Call debt type constructor
 
             Print_Context_Text("Would you like to add another debt? (y/n)");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) +2);
-                while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
             {
                 Print_Context_Text("Please input a valid answer");

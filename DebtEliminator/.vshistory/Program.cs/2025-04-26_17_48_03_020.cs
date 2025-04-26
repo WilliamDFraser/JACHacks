@@ -25,32 +25,31 @@ namespace DebtEliminator
                 Print_Context_Text($"Please enter the data for debt {i}");
 
                 Print_Context_Text("Name of debt:");
-                Console.SetCursorPosition((Console.WindowWidth / 2)-1, (Console.WindowHeight / 2) - 6);
-                name = Console.ReadLine();
+            name = Console.ReadLine();
             Print_Context_Text("Ammount left to pay:");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - 4);
-                while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
+            while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
             {
                 Print_Context_Text("Please input a valid answer");
             }
             Print_Context_Text("interest rate:");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - 2);
-                while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
+            while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
             {
-                   
+                    Console.SetCursorPosition(Console.WindowWidth/2, 0);
                 Print_Context_Text("Please input a valid answer");
             }
             Print_Context_Text("Minimum Monthly Payment:");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) );
-                while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
+            while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
             {
                 Print_Context_Text("Please input a valid answer");
             }
             //Call debt type constructor
-
+<<<<<<< HEAD
             Print_Context_Text("Would you like to add another debt? (y/n)");
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) +2);
-                while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
+=======
+            Console.WriteLine("Would you like to add another debt? (y/n)");
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N')) //fixed to upper
+>>>>>>> 867aa32c3df0cd50ff4f691573213bc5a25621fd
 
             {
                 Print_Context_Text("Please input a valid answer");
