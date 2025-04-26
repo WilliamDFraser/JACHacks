@@ -12,9 +12,6 @@
             decimal interest;
             decimal minimumPayment;
 
-            Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-
             do
             {
                 Console.WriteLine($"Please enter the data for debt {i + 1}");
@@ -43,7 +40,10 @@
                 }
             } while (input == 'y');
 
-            Print_Context_Box("Please select one from below : ", '-');
+                Print_Centered_Title("Debt Eliminator", '*', 3);
+                Console.WriteLine("\n\n\n");
+
+                Print_Context_Box("Please select one from below : ", '-');
                 Console.WriteLine("1.___");
                 Console.WriteLine("2.___");
                 Console.WriteLine("3.___");

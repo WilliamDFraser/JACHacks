@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DebtEliminator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+603a5846590e732f6de9560269c5774f277ac4f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ed24f63d79d443d8f44dc50e5a7c1dbc12f5dfc")]
 [assembly: System.Reflection.AssemblyProductAttribute("DebtEliminator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DebtEliminator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
