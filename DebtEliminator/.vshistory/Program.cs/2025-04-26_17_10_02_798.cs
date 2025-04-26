@@ -19,7 +19,6 @@ namespace DebtEliminator
 
         do
         {
-    
             Console.WriteLine($"Please enter the data for debt {i + 1}");
             Console.Write("Name of debt:");
             name = Console.ReadLine();
@@ -131,18 +130,14 @@ namespace DebtEliminator
             //Console.WriteLine(new string('-', Width));
         }
 
-            //static void Print_OutPut_Box(string Header, int Width)
-            //{
-            //    Console.WriteLine(new string('=', Width));
-            //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
-            //    Console.WriteLine(new string('=', Width));
-            //}
+        //static void Print_OutPut_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('=', Width));
+        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+        //    Console.WriteLine(new string('=', Width));
+        //}
 
 
-            static void Postition() 
-            {
-
-            }
 
 
         static void Snowball()
