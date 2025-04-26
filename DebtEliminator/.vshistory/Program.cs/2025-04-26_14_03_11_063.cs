@@ -15,7 +15,7 @@ namespace DebtEliminator
             Console.WriteLine("3.___");
 
 
-            Print_Bottom_Border(60);
+            Print_Contex_Box(60);
             Console.WriteLine("\n\n\n");
 
             Print_OutPut_Box("Results : ", 60);
@@ -44,7 +44,7 @@ namespace DebtEliminator
         static void Print_Context_Box(string Header, int Width)
         {
             Console.WriteLine(new string('-', Width));
-            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
+            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |";
             Console.WriteLine(new string('-', Width));
         }
 

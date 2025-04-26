@@ -15,7 +15,7 @@ namespace DebtEliminator
             Console.WriteLine("3.___");
 
 
-            Print_Bottom_Border(60);
+            Print_Contex_Box(60);
             Console.WriteLine("\n\n\n");
 
             Print_OutPut_Box("Results : ", 60);
