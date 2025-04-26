@@ -6,12 +6,8 @@ namespace DebtEliminator
     {
         static void Main(string[] args)
         {
-            char input = 'D'; //Default char
             int i = 0;
-            string name;
-            decimal ammount;
-            decimal interest;
-            decimal minimumPayment;
+
             Print_Centered_Title("Debt Eliminator", '*', 60);
             Console.WriteLine("\n\n\n");
 
@@ -19,30 +15,11 @@ namespace DebtEliminator
             {
                 Console.WriteLine($"Please enter the data for debt {i + 1}");
                 Console.Write("Name of debt:");
-                name = Console.ReadLine();
                 Console.Write("Ammount left to pay:");
-                while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
-                {
-                    Console.WriteLine("Please input a valid answer");
-                }
                 Console.Write("interest rate:");
-                while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
-                {
-                    Console.WriteLine("Please input a valid answer");
-                }
-                Console.Write("Minimum Monthly Payment:");
-                while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
-                {
-                    Console.WriteLine("Please input a valid answer");
-                }
-                //Call debt type constructor
-                Console.WriteLine("Would you like to add another debt? (y/n)");
-                while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
-                {
-                    Console.WriteLine("Please input a valid answer");
-                }
-
-            } while (input == 'y');
+                Console.Write("Minimum Payment:");
+                Console.ReadLine();
+            } while (i != 2);
 
             Print_Context_Box("Please select one from below : ", 60);
             Console.WriteLine("1.___");

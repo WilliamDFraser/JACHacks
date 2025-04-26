@@ -35,8 +35,7 @@ namespace DebtEliminator
                 {
                     Console.WriteLine("Please input a valid answer");
                 }
-                //Call debt type constructor
-                Console.WriteLine("Would you like to add another debt? (y/n)");
+                Console.WriteLine("");
                 while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
                 {
                     Console.WriteLine("Please input a valid answer");
