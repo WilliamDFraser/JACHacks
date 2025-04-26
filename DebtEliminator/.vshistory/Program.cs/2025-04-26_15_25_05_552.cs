@@ -15,95 +15,84 @@ namespace DebtEliminator
             Print_Centered_Title("Debt Eliminator", '*', 60);
             Console.WriteLine("\n\n\n");
 
+            do
+            {
+                Console.WriteLine($"Please enter the data for debt {i + 1}");
+                Console.Write("Name of debt:");
+                name = Console.ReadLine();
+                Console.Write("Ammount left to pay:");
+                while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
+                {
+                    Console.WriteLine("Please input a valid answer");
+                }
+                Console.Write("interest rate:");
+                while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
+                {
+                    Console.WriteLine("Please input a valid answer");
+                }
+                Console.Write("Minimum Monthly Payment:");
+                while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
+                {
+                    Console.WriteLine("Please input a valid answer");
+                }
+                Console.WriteLine("");
+                while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
+                {
+                    Console.WriteLine("Please input a valid answer");
+                }
+
+            } while (input == 'y');
+
             Print_Context_Box("Please select one from below : ", 60);
             Console.WriteLine("1.___");
             Console.WriteLine("2.___");
             Console.WriteLine("3.___");
 
 
-            Print_Bottom_Border('-');
+            Print_Bottom_Border(60);
             Console.WriteLine("\n\n\n");
 
-            Print_Context_Box("Results : ", '=');
-            Print_Context_Text("Here's the context of output : ");
-            Print_Bottom_Border('=');
+            Print_OutPut_Box("Results : ", 60);
+            Console.WriteLine("Here's the context of output : ");
+            Print_Bottom_Border(60);
 
 
             Snowball();
         }
-        static int Get_Console_Width()
+        static void Print_Centered_Title(string Title, char Board_Char, int Width)
         {
-            return Console.WindowWidth - 1;
+            Console.WriteLine(new string(Board_Char, Width));
+
+            int Padding = (Width - Title.Length - 2) / 2;
+            string Padding_Title = new string(' ', Padding) + Title + new string(' ', Padding);
+
+            if ((Width - Title.Length - 2) % 2 != 0)
+            {
+                Padding_Title += " ";
+            }
+
+            Console.WriteLine(Board_Char + Padding_Title + Board_Char);
+            Console.WriteLine(new string(Board_Char, Width));
         }
 
-        static void Print_Context_Text(string Text, char PaddingChar = ' ')
+        static void Print_Context_Box(string Header, int Width)
         {
-            int ConsoleWidth = Get_Console_Width();
-            int Padding = (ConsoleWidth - Text.Length) / 2;
-
-            if (Padding < 0) Padding = 0;
-            if (Text.Length > ConsoleWidth) Text = Text.Substring(0, ConsoleWidth);
-
-            Console.WriteLine(Text.PadLeft(Padding + Text.Length, PaddingChar));
+            Console.WriteLine(new string('-', Width));
+            Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
+            Console.WriteLine(new string('-', Width));
         }
 
-        static void Print_Bottom_Border(char BorderChar)
+        static void Print_OutPut_Box(string Header, int Width)
         {
-            Print_Context_Text(new string(BorderChar, Get_Console_Width()));
+            Console.WriteLine(new string('=', Width));
+            Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+            Console.WriteLine(new string('=', Width));
         }
 
-        static void Print_Centered_Title(string Title, char Board_Char, int Box_Padding = 1)
+        static void Print_Bottom_Border(int Width)
         {
-            int ConsoleWidth = Get_Console_Width();
-            int Box_Width = Math.Min(Title.Length + (Box_Padding * 2) + 2, ConsoleWidth - 2);
-
-            Print_Context_Text(new string(Board_Char, Box_Width));
-
-            string Padding_Title = Title.PadLeft(Title.Length + Box_Padding).PadLeft(Title.Length + (Box_Padding * 2));
-            Print_Context_Text(Board_Char + Padding_Title + Board_Char);
-
-            Print_Context_Text(new string(Board_Char, Box_Width));
-
-            //Console.WriteLine(new string(Board_Char, Width));
-
-            //int Padding = (Width - Title.Length - 2) / 2;
-            //string Padding_Title = new string(' ', Padding) + Title + new string(' ', Padding);
-
-            //if ((Width - Title.Length - 2) % 2 != 0)
-            //{
-            //    Padding_Title += " ";
-            //}
-            
-            //    Console.WriteLine(Board_Char + Padding_Title + Board_Char);
-            //    Console.WriteLine(new string(Board_Char, Width));
-            //}
+            Console.WriteLine(new string('-', Width));
         }
-
-        static void Print_Context_Box(string Header, char Board_Char)
-        {
-            int ConsoleWidth = Get_Console_Width();
-            int BoxWidth = Math.Min(Header.Length + 4, ConsoleWidth - 2);
-
-            Print_Context_Text(new string(Board_Char, BoxWidth));
-            string PaddingHeader = " " + Header + " ";
-
-            PaddingHeader = PaddingHeader.PadRight(BoxWidth - 2);
-            Print_Context_Text(Board_Char + PaddingHeader + Board_Char);
-
-            Print_Context_Text(new string(Board_Char, BoxWidth));
-
-            //Console.WriteLine(new string('-', Width));
-            //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
-            //Console.WriteLine(new string('-', Width));
-        }
-
-        //static void Print_OutPut_Box(string Header, int Width)
-        //{
-        //    Console.WriteLine(new string('=', Width));
-        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
-        //    Console.WriteLine(new string('=', Width));
-        //}
-
 
 
 
