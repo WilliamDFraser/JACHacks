@@ -8,6 +8,10 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DebtEliminator
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\islam\Desktop\JACHacks\DebtEliminator\
+=======
+build_property.ProjectDir = C:\Users\willi\OneDrive\Bureau\JacHacks\JACHacks\DebtEliminator\
+>>>>>>> 1124fb5157d50b46e3f78dfc74e02d6aa059a883
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
