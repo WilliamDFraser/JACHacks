@@ -6,7 +6,6 @@ namespace DebtEliminator
     {
         static void Main(string[] args)
         {
-            List<DebtType> list = new List<DebtType>();
             char input = 'D'; //Default char
             int i = 0;
             string name;
@@ -36,8 +35,7 @@ namespace DebtEliminator
                 {
                     Console.WriteLine("Please input a valid answer");
                 }
-                DebtType debt = new DebtType(name, ammount, interest, minimumPayment);
-                list.Add(debt);
+                //Call debt type constructor
                 Console.WriteLine("Would you like to add another debt? (y/n)");
                 while (!char.TryParse(Console.ReadLine(), out input) || (input != 'y' && input != 'n'))
                 {
