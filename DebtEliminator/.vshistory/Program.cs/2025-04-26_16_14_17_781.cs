@@ -61,7 +61,7 @@ namespace DebtEliminator
 
             Print_Context_Text(new string(Board_Char, Box_Width));
 
-            string Padding_Title = Title.PadLeft(Title.Length + Box_Padding).PadRight(Title.Length + (Box_Padding * 2));
+            string Padding_Title = Title.PadLeft(Title.Length + Box_Padding).PadLeft(Title.Length + (Box_Padding * 2));
             Print_Context_Text(Board_Char + Padding_Title + Board_Char);
 
             Print_Context_Text(new string(Board_Char, Box_Width));

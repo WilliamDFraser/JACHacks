@@ -12,12 +12,10 @@ namespace DebtEliminator
             decimal ammount;
             decimal interest;
             decimal minimumPayment;
-
-
-            Print_Centered_Title("Debt Eliminator", '*', 3);
+            Print_Centered_Title("Debt Eliminator", '*', 60);
             Console.WriteLine("\n\n\n");
 
-            Print_Context_Box("Please select one from below : ", '-');
+            Print_Context_Box("Please select one from below : ", 60);
             Console.WriteLine("1.___");
             Console.WriteLine("2.___");
             Console.WriteLine("3.___");
@@ -61,7 +59,7 @@ namespace DebtEliminator
 
             Print_Context_Text(new string(Board_Char, Box_Width));
 
-            string Padding_Title = Title.PadLeft(Title.Length + Box_Padding).PadRight(Title.Length + (Box_Padding * 2));
+            string Padding_Title = Title.PadLeft(Title.Length + Box_Padding).PadLeft(Title.Length + (Box_Padding * 2));
             Print_Context_Text(Board_Char + Padding_Title + Board_Char);
 
             Print_Context_Text(new string(Board_Char, Box_Width));
