@@ -45,7 +45,7 @@ namespace DebtEliminator
                 {
 
                     postions += 2;
-
+                  
                     Print_Context_Text("Please input a valid answer");
                     SetCurcorPoition(postions);
                 }
@@ -70,7 +70,7 @@ namespace DebtEliminator
                     Print_Context_Text("Please input a valid answer");
                     SetCurcorPoition(postions);
                 }
-
+                
             } while (input == 'Y');
 
             Print_Context_Box("Please select one from below : ", '-');
@@ -89,7 +89,6 @@ namespace DebtEliminator
             // int padding = (consoleWidth - text.Length) / 2;
             // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
             // Console.WriteLine(text.PadLeft(padding + text.Length));
-        }
             static int Get_Console_Width()
             {
                 return Console.WindowWidth - 1;
@@ -235,6 +234,6 @@ namespace DebtEliminator
 
                 }
             }
-        
+        }
     }
 }
