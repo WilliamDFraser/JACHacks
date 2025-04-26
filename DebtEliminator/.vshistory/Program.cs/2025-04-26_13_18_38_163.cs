@@ -4,25 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Print_Centered_Title("Debt Eliminator", '*', 60);
-
+            Console.WriteLine("DebtEliminator");
         }
-        static void Print_Centered_Title(string Title, char Board_Char, int Width)
-        {
-            Console.WriteLine(new string(Board_Char, Width));
-
-            int Padding = (Width - Title.Length - 2) / 2;
-            string Padding_Title = new string(' ', Padding) + Title + new string(' ', Padding);
-
-            if ((Width - Title.Length - 2) % 2 != 0)
-            {
-                Padding_Title += " ";
-            }
-
-            Console.WriteLine(Board_Char + Padding_Title + Board_Char);
-            Console.WriteLine(new string(Board_Char, Width));
-        }
-
         static void Snowball()
         {
             char input = 'D';
