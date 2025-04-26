@@ -1,0 +1,219 @@
+namespace DebtEliminator 
+{ 
+
+
+    internal class Program
+{
+    static void Main(string[] args)
+    {
+        List<DebtType> list = new List<DebtType>();
+        char input = 'D'; //Default char
+        int i = 0;
+        string name;
+        decimal ammount;
+        decimal interest;
+        decimal minimumPayment;
+
+        Print_Centered_Title("Debt Eliminator", '*', 3);
+        Console.WriteLine("\n\n\n");
+
+        do
+        {
+
+
+                i++;
+                Print_Context_Text($"Please enter the data for debt {i}");
+
+                Print_Context_Text("Name of debt:");
+                Console.SetCursorPosition((Console.WindowWidth / 2)-1, (Console.WindowHeight / 2) - 6);
+                name = Console.ReadLine();
+            Print_Context_Text("Ammount left to pay:");
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - 4);
+                while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
+            {
+                Print_Context_Text("Please input a valid answer");
+            }
+            Print_Context_Text("interest rate:");
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - 2);
+                while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
+            {
+                   
+                Print_Context_Text("Please input a valid answer");
+            }
+            Print_Context_Text("Minimum Monthly Payment:");
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) );
+                while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
+            {
+                Print_Context_Text("Please input a valid answer");
+            }
+            //Call debt type constructor
+
+            Print_Context_Text("Would you like to add another debt? (y/n)");
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) +2);
+                while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
+
+            {
+                Print_Context_Text("Please input a valid answer");
+            }
+        } while (input == 'Y');
+
+        Print_Context_Box("Please select one from below : ", '-');
+        Print_Context_Text("1.___");
+        Print_Context_Text("2.___");
+        Print_Context_Text("3.___");
+
+
+        Print_Bottom_Border('-');
+        Print_Context_Text("\n\n\n");
+
+        Print_Context_Box("Results : ", '=');
+        Print_Context_Text("Here's the context of output : ");
+        Print_Bottom_Border('=');
+
+        // int padding = (consoleWidth - text.Length) / 2;
+        // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
+        // Console.WriteLine(text.PadLeft(padding + text.Length));
+        static int Get_Console_Width()
+        {
+            return Console.WindowWidth - 1;
+        }
+
+        static void Print_Context_Text(string Text, char PaddingChar = ' ')
+        {
+            int ConsoleWidth = Get_Console_Width();
+            int Padding = (ConsoleWidth - Text.Length) / 2;
+
+            if (Padding < 0) Padding = 0;
+            if (Text.Length > ConsoleWidth) Text = Text.Substring(0, ConsoleWidth);
+
+            Console.WriteLine(Text.PadLeft(Padding + Text.Length, PaddingChar));
+        }
+
+        static void Print_Bottom_Border(char BorderChar)
+        {
+            Print_Context_Text(new string(BorderChar, Get_Console_Width()));
+        }
+
+        static void Print_Centered_Title(string Title, char Board_Char, int Box_Padding = 1)
+        {
+            int ConsoleWidth = Get_Console_Width();
+            int Box_Width = Math.Min(Title.Length + (Box_Padding * 2) + 2, ConsoleWidth - 2);
+
+            Print_Context_Text(new string(Board_Char, Box_Width));
+
+            string Padding_Title = Title.PadLeft(Title.Length + Box_Padding).PadRight(Title.Length + (Box_Padding * 2));
+            Print_Context_Text(Board_Char + Padding_Title + Board_Char);
+
+            Print_Context_Text(new string(Board_Char, Box_Width));
+
+            //Console.WriteLine(new string(Board_Char, Width));
+
+            //int Padding = (Width - Title.Length - 2) / 2;
+            //string Padding_Title = new string(' ', Padding) + Title + new string(' ', Padding);
+
+            //if ((Width - Title.Length - 2) % 2 != 0)
+            //{
+            //    Padding_Title += " ";
+            //}
+
+            //    Console.WriteLine(Board_Char + Padding_Title + Board_Char);
+            //    Console.WriteLine(new string(Board_Char, Width));
+            //}
+        }
+
+        static void Print_Context_Box(string Header, char Board_Char)
+        {
+            int ConsoleWidth = Get_Console_Width();
+            int BoxWidth = Math.Min(Header.Length + 4, ConsoleWidth - 2);
+
+            Print_Context_Text(new string(Board_Char, BoxWidth));
+            string PaddingHeader = " " + Header + " ";
+
+            PaddingHeader = PaddingHeader.PadRight(BoxWidth - 2);
+            Print_Context_Text(Board_Char + PaddingHeader + Board_Char);
+
+            Print_Context_Text(new string(Board_Char, BoxWidth));
+
+            //Console.WriteLine(new string('-', Width));
+            //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
+            //Console.WriteLine(new string('-', Width));
+        }
+
+            //static void Print_OutPut_Box(string Header, int Width)
+            //{
+            //    Console.WriteLine(new string('=', Width));
+            //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+            //    Console.WriteLine(new string('=', Width));
+            //}
+
+
+            
+
+
+        static void Snowball()
+        {
+            char input = 'D'; //Default char
+            Console.WriteLine("You have selected Snowball Method");
+            Console.WriteLine();
+            Console.WriteLine("The Snowball Method is used to focus on paying the smallest debt");
+            Console.WriteLine("The other payments will be made using the minimum ammount");
+            Console.WriteLine("Once the smallest is gone it will tackle the next one");
+            Console.WriteLine();
+            Console.WriteLine("Would you like to continue with the Snowball Method? (y/n)");
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            {
+                Console.WriteLine("Please input a valid answer");
+            }
+            if (input == 'N')
+                return;
+            else
+            {
+
+            }
+
+        }
+        static void Avalanche()
+        {
+            char input = 'D'; //Default char
+            Console.WriteLine("You have selected Avalanche Method");
+            Console.WriteLine();
+            Console.WriteLine("The Avalanche Method focuses on paying the debt with the highest interest rate");
+            Console.WriteLine("It will then move to the next one");
+            Console.WriteLine("The other payments will be made using the minimum ammount");
+            Console.WriteLine("Once the smallest is gone it will tackle the next one");
+            Console.WriteLine();
+            Console.WriteLine("Would you like to continue with the Avalanche Method? (y/n)");
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            {
+                Console.WriteLine("Please input a valid answer");
+            }
+            if (input == 'N')
+                return;
+            else
+            {
+
+            }
+        }
+        static void Consolidation()
+        {
+            char input = 'D'; //Default char
+            Console.WriteLine("You have selected Consolidation Method");
+            Console.WriteLine();
+            Console.WriteLine("The Consolidation Method transferring all debts into one big loan");
+            Console.WriteLine("Usually with a lower interest rate");
+            Console.WriteLine();
+            Console.WriteLine("Would you like to continue with the Consolidation Method? (y/n)");
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            {
+                Console.WriteLine("Please input a valid answer");
+            }
+            if (input == 'N')
+                return;
+            else
+            {
+
+            }
+        }
+    }
+}
+}

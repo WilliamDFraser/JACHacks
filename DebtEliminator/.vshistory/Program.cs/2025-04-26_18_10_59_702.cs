@@ -26,49 +26,42 @@ namespace DebtEliminator
                 Print_Context_Text($"Please enter the data for debt {i}");
 
                 Print_Context_Text("Name of debt:");
-                SetCurcorPoition(postions);
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - postions);
                 name = Console.ReadLine();
                 Print_Context_Text("Ammount left to pay:");
                 postions += 2;
-                SetCurcorPoition(postions);
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - postions);
                 while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
                 {
                     postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
                 postions += 2;
                 Print_Context_Text("interest rate:");
-                SetCurcorPoition(postions);
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - 2);
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
 
                 {
-
                     postions += 2;
-                  
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
                 postions += 2;
                 Print_Context_Text("Minimum Monthly Payment:");
-                SetCurcorPoition(postions);
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2));
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
                 {
                     postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
-                postions += 2;
                 //Call debt type constructor
 
                 Print_Context_Text("Would you like to add another debt? (y/n)");
-                SetCurcorPoition(postions);
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + 2);
                 while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
                 {
                     postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
                 
             } while (input == 'Y');
@@ -96,7 +89,7 @@ namespace DebtEliminator
 
             static void SetCurcorPoition(int postions) 
             {
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) - postions);
             }
             static void Print_Context_Text(string Text, char PaddingChar = ' ')
             {

@@ -35,7 +35,6 @@ namespace DebtEliminator
                 {
                     postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
                 postions += 2;
                 Print_Context_Text("interest rate:");
@@ -43,11 +42,8 @@ namespace DebtEliminator
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
 
                 {
-
                     postions += 2;
-                  
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
                 postions += 2;
                 Print_Context_Text("Minimum Monthly Payment:");
@@ -56,7 +52,6 @@ namespace DebtEliminator
                 {
                     postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
                 postions += 2;
                 //Call debt type constructor
@@ -68,7 +63,6 @@ namespace DebtEliminator
                 {
                     postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                    SetCurcorPoition(postions);
                 }
                 
             } while (input == 'Y');
