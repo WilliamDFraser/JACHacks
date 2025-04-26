@@ -19,50 +19,42 @@ namespace DebtEliminator
 
         do
         {
-
-
                 i++;
-                Print_Context_Text($"Please enter the data for debt {i}");
-
-                Print_Context_Text("Name of debt:");
+            Console.WriteLine($"Please enter the data for debt {i}");
+            Console.Write("Name of debt:");
             name = Console.ReadLine();
-            Print_Context_Text("Ammount left to pay:");
+            Console.Write("Ammount left to pay:");
             while (!decimal.TryParse(Console.ReadLine(), out ammount) || ammount <= 0)
             {
-                Print_Context_Text("Please input a valid answer");
+                Console.WriteLine("Please input a valid answer");
             }
-            Print_Context_Text("interest rate:");
+            Console.Write("interest rate:");
             while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
             {
-                Print_Context_Text("Please input a valid answer");
+                Console.WriteLine("Please input a valid answer");
             }
-            Print_Context_Text("Minimum Monthly Payment:");
+            Console.Write("Minimum Monthly Payment:");
             while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
             {
-                Print_Context_Text("Please input a valid answer");
+                Console.WriteLine("Please input a valid answer");
             }
             //Call debt type constructor
-<<<<<<< HEAD
-            Print_Context_Text("Would you like to add another debt? (y/n)");
-            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
-=======
             Console.WriteLine("Would you like to add another debt? (y/n)");
-            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N')) //fixed to upper
->>>>>>> 867aa32c3df0cd50ff4f691573213bc5a25621fd
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
             {
-                Print_Context_Text("Please input a valid answer");
+                Console.WriteLine("Please input a valid answer");
             }
         } while (input == 'Y');
 
         Print_Context_Box("Please select one from below : ", '-');
-        Print_Context_Text("1.___");
-        Print_Context_Text("2.___");
-        Print_Context_Text("3.___");
+        Console.WriteLine("1.___");
+        Console.WriteLine("2.___");
+        Console.WriteLine("3.___");
 
 
         Print_Bottom_Border('-');
-        Print_Context_Text("\n\n\n");
+        Console.WriteLine("\n\n\n");
 
         Print_Context_Box("Results : ", '=');
         Print_Context_Text("Here's the context of output : ");
@@ -137,15 +129,14 @@ namespace DebtEliminator
             //Console.WriteLine(new string('-', Width));
         }
 
-            //static void Print_OutPut_Box(string Header, int Width)
-            //{
-            //    Console.WriteLine(new string('=', Width));
-            //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
-            //    Console.WriteLine(new string('=', Width));
-            //}
+        //static void Print_OutPut_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('=', Width));
+        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+        //    Console.WriteLine(new string('=', Width));
+        //}
 
 
-            
 
 
         static void Snowball()
