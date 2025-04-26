@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace DebtEliminator
+﻿namespace DebtEliminator
 {
     internal class Program
     {
@@ -18,7 +16,7 @@ namespace DebtEliminator
             Print_Contex_Box(60);
             Console.WriteLine("\n\n\n");
 
-            Print_OutPut_Box("Results : ", 60);
+            Print_OutPut_Box("Results : ");
             Console.WriteLine("Here's the context of output : ");
             Print_Bottom_Border(60);
 
@@ -53,11 +51,6 @@ namespace DebtEliminator
             Console.WriteLine(new string('=', Width));
             Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
             Console.WriteLine(new string('=', Width));
-        }
-
-        static void Print_Bottom_Border(int Width)
-        {
-            Console.WriteLine(new string('-', Width));
         }
 
 

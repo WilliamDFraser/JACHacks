@@ -1,11 +1,10 @@
-﻿using System.Xml.Serialization;
-
-namespace DebtEliminator
+﻿namespace DebtEliminator
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             Print_Centered_Title("Debt Eliminator", '*', 60);
             Console.WriteLine("\n\n\n");
 
@@ -18,12 +17,13 @@ namespace DebtEliminator
             Print_Contex_Box(60);
             Console.WriteLine("\n\n\n");
 
-            Print_OutPut_Box("Results : ", 60);
+            Print_OutPut_Box("Results : ");
             Console.WriteLine("Here's the context of output : ");
             Print_Bottom_Border(60);
 
-
+=======
             Snowball();
+>>>>>>> 012f18f10179538348e65e2cb063b7367695e894
         }
         static void Print_Centered_Title(string Title, char Board_Char, int Width)
         {
@@ -53,11 +53,6 @@ namespace DebtEliminator
             Console.WriteLine(new string('=', Width));
             Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
             Console.WriteLine(new string('=', Width));
-        }
-
-        static void Print_Bottom_Border(int Width)
-        {
-            Console.WriteLine(new string('-', Width));
         }
 
 

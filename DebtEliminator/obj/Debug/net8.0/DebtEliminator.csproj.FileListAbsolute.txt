@@ -13,3 +13,11 @@ C:\Users\willi\OneDrive\Bureau\JacHacks\JACHacks\DebtEliminator\obj\Debug\net8.0
 C:\Users\willi\OneDrive\Bureau\JacHacks\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.pdb
 C:\Users\willi\OneDrive\Bureau\JacHacks\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.genruntimeconfig.cache
 C:\Users\willi\OneDrive\Bureau\JacHacks\JACHacks\DebtEliminator\obj\Debug\net8.0\ref\DebtEliminator.dll
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.AssemblyInfoInputs.cache
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.AssemblyInfo.cs
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.csproj.CoreCompileInputs.cache
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.sourcelink.json
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.dll
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\refint\DebtEliminator.dll
+C:\Users\Suheng\OneDrive - John Abbott College\Desktop\JACHacks\DebtEliminator\obj\Debug\net8.0\DebtEliminator.pdb
