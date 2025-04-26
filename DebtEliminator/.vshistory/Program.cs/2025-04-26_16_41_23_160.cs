@@ -47,9 +47,9 @@ namespace DebtEliminator
             } while (input == 'y');
 
             Print_Context_Box("Please select one from below : ", 60);
-            Console.WriteLine("1.Snowball");
-            Console.WriteLine("2.Avalanche");
-            Console.WriteLine("3.Debt C");
+            Console.WriteLine("1.___");
+            Console.WriteLine("2.___");
+            Console.WriteLine("3.___");
 
 
             Print_Bottom_Border(60);
