@@ -22,29 +22,29 @@ namespace DebtEliminator
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
 
-            //while (Add_More_Debts)
-            //{
-            //    Debt_Count++;
+            while (Add_More_Debts)
+            {
+                Debt_Count++;
+                Console.Clear();
+
+                name = Print_Input_Box("Name of debt:");
                 
+                while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
+                {
+                    Console.WriteLine("Invalid input! Please enter a positive number.");
+                }
 
-            //    name = Print_Input_Box("Name of debt:");
-                
-            //    while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
-            //    {
-            //        Console.WriteLine("Invalid input! Please enter a positive number.");
-            //    }
+                List_Of_Debts.Add(new DebtType(name, amount, interest, minimumPayment));
 
-            //    List_Of_Debts.Add(new DebtType(name, amount, interest, minimumPayment));
+                char Choice;
+                do
+                {
+                    string Answer = Print_Input_Box("Add another debt ? (Y / N)", Min_Width: 20);
+                    Choice = char.ToUpper(Answer[0]);
 
-            //    char Choice;
-            //    do
-            //    {
-            //        string Answer = Print_Input_Box("Add another debt ? (Y / N)", Min_Width: 20);
-            //        Choice = char.ToUpper(Answer[0]);
-
-            //    } while (Choice != 'Y' && Choice != 'N');
-            //    Add_More_Debts = (Choice == 'Y');
-            //}
+                } while (Choice != 'Y' && Choice != 'N');
+                Add_More_Debts = (Choice == 'Y');
+            }
           //  Print_Summary(List_Of_Debts);
 
             do
@@ -52,52 +52,53 @@ namespace DebtEliminator
 
 
                 i++;
-               // int postions = -6;
+                int postions = -6;
                 Print_Context_Text($"Please enter the data for debt {i}");
-                
-                name = Print_Input_Box("Name of debt:");
-               // SetCurcorPoition(postions);
-                while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
+
+                Print_Context_Text("Name of debt:");
+                SetCurcorPoition(postions);
+                name = Console.ReadLine();
+                Print_Context_Text("Ammount left to pay:");
+                postions += 2;
+                SetCurcorPoition(postions);
+                while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
                 {
-                   
-                //    postions += 4;
-                    Console.WriteLine("Invalid input! Please enter a positive number.");
-               //     SetCurcorPoition(postions);
+                    postions += 2;
+                    Print_Context_Text("Please input a valid answer");
+                    SetCurcorPoition(postions);
                 }
-
-
-                //postions += 4;
-                Print_Input_Box("interest rate:");
-              //  SetCurcorPoition(postions);
+                postions += 2;
+                Print_Context_Text("interest rate:");
+                SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
 
                 {
 
-                   // postions += 4;
+                    postions += 2;
 
                     Print_Context_Text("Please input a valid answer");
-                  //  SetCurcorPoition(postions);
+                    SetCurcorPoition(postions);
                 }
-                // postions += 4;
-                Print_Input_Box("Minimum Monthly Payment:");
-              //  SetCurcorPoition(postions);
+                postions += 2;
+                Print_Context_Text("Minimum Monthly Payment:");
+                SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
                 {
-                   // postions += 4;
+                    postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                   // SetCurcorPoition(postions);
+                    SetCurcorPoition(postions);
                 }
-                // postions += 4;
+                postions += 2;
                 //Call debt type constructor
 
-                Print_Input_Box("Would you like to add another debt? (y/n)");
-              //  SetCurcorPoition(postions);
+                Print_Context_Text("Would you like to add another debt? (y/n)");
+                SetCurcorPoition(postions);
                 while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
                 {
-                //    postions += 2;
+                    postions += 2;
                     Print_Context_Text("Please input a valid answer");
-                 //   SetCurcorPoition(postions);
+                    SetCurcorPoition(postions);
                 }
 
             } while (input == 'Y');

@@ -64,10 +64,10 @@ namespace DebtEliminator
                     Console.WriteLine("Invalid input! Please enter a positive number.");
                //     SetCurcorPoition(postions);
                 }
-
-
+              
+               
                 //postions += 4;
-                Print_Input_Box("interest rate:");
+                Print_Context_Text("interest rate:");
               //  SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
 
@@ -78,8 +78,8 @@ namespace DebtEliminator
                     Print_Context_Text("Please input a valid answer");
                   //  SetCurcorPoition(postions);
                 }
-                // postions += 4;
-                Print_Input_Box("Minimum Monthly Payment:");
+               // postions += 4;
+                Print_Context_Text("Minimum Monthly Payment:");
               //  SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
                 {
@@ -87,10 +87,10 @@ namespace DebtEliminator
                     Print_Context_Text("Please input a valid answer");
                    // SetCurcorPoition(postions);
                 }
-                // postions += 4;
+               // postions += 4;
                 //Call debt type constructor
 
-                Print_Input_Box("Would you like to add another debt? (y/n)");
+                Print_Context_Text("Would you like to add another debt? (y/n)");
               //  SetCurcorPoition(postions);
                 while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
