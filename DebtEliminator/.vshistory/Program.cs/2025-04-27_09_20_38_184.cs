@@ -9,7 +9,7 @@ namespace DebtEliminator
         static void Main(string[] args)
         {
             List<DebtType> List_Of_Debts = new List<DebtType>();
-            char input;
+            char Input;
             byte methodSelector = 0;
 
             //bool Add_More_Debts = true;
@@ -101,76 +101,64 @@ namespace DebtEliminator
                 //}
 
                 //Call debt type constructor
-                //DebtType debt = new DebtType(name, amount, interest, minimumPayment);
-                List_Of_Debts.Add(new DebtType(name, amount, interest, minimumPayment));
+                DebtType debt = new DebtType(name, amount, interest, minimumPayment);
+                List_Of_Debts.Add(debt);
+                Print_Input_Box("Would you like to add another debt? (y/n)");
 
-                input = Get_Valid_Choice("Add another debt ? (Y / N) ", ValidChoices: new[] { 'Y', 'N' });
+                while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
-                //Print_Input_Box("Would you like to add another debt? (y/n)");
+                {
 
-                //while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
-                //{
-                //    Print_Context_Text("Please input a valid answer");
-                //}
+                    Print_Context_Text("Please input a valid answer");
+
+                }
+
 
             } while (input == 'Y');
 
             while (methodSelector != 4)
             {
-                Console.Clear();
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-
                 Print_Context_Box("Please select one from below : ", '-');
                 Print_Context_Text("1.Snowball Method");
-                Print_Context_Text("2.Debt Consolidation");
-                Print_Context_Text("3. Exit");
-                Print_Bottom_Border('-');
-
-                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 4, ErrorMsg: "Please enter a number between 1 - 3");
-
-                switch (methodSelector)
+                Print_Context_Text("2.Avalanche Method");
+                Print_Context_Text("3.Debt Consolidation");
+                Print_Context_Text("4. Exit");
+                while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
                 {
-                    case 1:
-                        Snowball(List_Of_Debts);
-                        break;
-                    case 2:
-                        Consolidation(List_Of_Debts);
-                        break;
+                    Print_Input_Box("Please select a valid option");
                 }
-
-                //while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
-                //{
-                //    Print_Input_Box("Please select a valid option");
-                //}
-                //if (methodSelector == 1)
-                //{
-                //    Snowball();
-                //}
-                //else if (methodSelector == 2)
-                //{
-                //    Avalanche();
-                //}
-                //else if (methodSelector == 3)
-                //{
-                //    Consolidation();
-                //}
+                if (methodSelector == 1)
+                {
+                    Snowball();
+                }
+                else if (methodSelector == 2)
+                {
+                    Avalanche();
+                }
+                else if (methodSelector == 3)
+                {
+                    Consolidation();
+                }
             }
-            //Console.Clear();
-            //Print_Centered_Title("Debt Eliminator", '*', 3);
-            //Console.WriteLine("\n\n\n");
-            //Print_Context_Box("Please select one from below : ", '-');
-            //Print_Context_Text("1.Snowball Method");
-            //Print_Context_Text("2.Avalanche Method");
-            //Print_Context_Text("3.Debt Consolidation");
+            Console.Clear();
+            Print_Centered_Title("Debt Eliminator", '*', 3);
+            Console.WriteLine("\n\n\n");
+            Print_Context_Box("Please select one from below : ", '-');
+            Print_Context_Text("1.Snowball Method");
+            Print_Context_Text("2.Avalanche Method");
+            Print_Context_Text("3.Debt Consolidation");
 
 
-            //    Print_Bottom_Border('-');
-            //Print_Context_Text("\n\n\n");
+                Print_Bottom_Border('-');
+            Print_Context_Text("\n\n\n");
 
-            //Print_Context_Box("Results : ", '=');
-            //Print_Context_Text("Here's the context of output : ");
-            //Print_Bottom_Border('=');
+            Print_Context_Box("Results : ", '=');
+            Print_Context_Text("Here's the context of output : ");
+            Print_Bottom_Border('=');
+
+            // int padding = (consoleWidth - text.Length) / 2;
+            // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
+            // Console.WriteLine(text.PadLeft(padding + text.Length));
         }
 
         static string Get_Valid_Input(string Prompt, Func<string, bool> Validate, string ErrorMsg)
@@ -210,57 +198,6 @@ namespace DebtEliminator
             return Value;
         }
 
-        static char Get_Valid_Choice(string Prompt, char[] ValidChoices)
-        {
-            char choice;
-            do
-            {
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-                Print_Input_Box(Prompt);
-                if (!char.TryParse(Console.ReadLine().ToUpper(), out choice))
-                {
-                    Print_Context_Text("Invalid input !", '!');
-                    Console.ReadKey();
-                }
-            } while (!ValidChoices.Contains(choice));
-
-            return choice;
-        }
-
-        static byte Get_Valid_Byte_Input(string Prompt, byte MinValue, byte MaxValue, string ErrorMsg)
-        {
-            byte Value;
-            do
-            {
-                Console.Clear();
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-                Print_Input_Box(Prompt);
-                if (!byte.TryParse(Console.ReadLine(), out Value) || Value < MinValue || Value > MaxValue)
-                {
-                    Print_Context_Text(ErrorMsg, '!');
-                    Console.ReadKey();
-                }
-            } while (Value < MinValue || Value > MaxValue);
-
-            return Value;
-        }
-
-        static void Print_Debt_Summary(List<DebtType> debts)
-        {
-            Console.Clear();
-            Print_Centered_Title("Debt Eliminator", '*', 3);
-            Console.WriteLine("\n\n\n");
-
-            foreach (var debt in debts)
-            {
-                Print_Context_Text($"{debt.Type}: {debt.DebtAmount:C2} at {debt.IntrestRate}% interest");
-            }
-            Print_Input_Box("Press any key to continue ...");
-            Console.ReadKey();
-        }
-        
         static int Get_Console_Width()
         {
             return Console.WindowWidth - 1;
@@ -353,7 +290,24 @@ namespace DebtEliminator
             //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
             //Console.WriteLine(new string('-', Width));
         }
-        static void Snowball(List<DebtType> debt)
+
+        static void Print_Summary(List<DebtType> List_Of_Debts)
+        {
+            Console.Clear();
+            Print_Centered_Title("Debt Summary", '*', 3);
+
+            //foreach (var debt in List_Of_Debts)
+            //{
+            //    Console.WriteLine($"• {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
+            //}
+
+            Print_Input_Box("Press any key to continue...", Min_Width: 30);
+        }
+
+
+
+
+        static void Snowball()
         {
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Snowball Method");
@@ -376,13 +330,30 @@ namespace DebtEliminator
             }
 
         }
-        static void Consolidation(List<DebtType> debt)
+        static void Avalanche()
         {
-            decimal amount = 0;
-            decimal averageInterest = 0;
-            decimal minimumTotalPayment = 0;
-            decimal totalPayment=0;
-            int j = 0;
+            char input = 'D'; //Default char
+            Console.WriteLine("You have selected Avalanche Method");
+            Console.WriteLine();
+            Console.WriteLine("The Avalanche Method focuses on paying the debt with the highest interest rate");
+            Console.WriteLine("It will then move to the next one");
+            Console.WriteLine("The other payments will be made using the minimum ammount");
+            Console.WriteLine("Once the smallest is gone it will tackle the next one");
+            Console.WriteLine();
+            Console.WriteLine("Would you like to continue with the Avalanche Method? (y/n)");
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            {
+                Console.WriteLine("Please input a valid answer");
+            }
+            if (input == 'N')
+                return;
+            else
+            {
+
+            }
+        }
+        static void Consolidation()
+        {
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Consolidation Method");
             Console.WriteLine();
@@ -398,27 +369,7 @@ namespace DebtEliminator
                 return;
             else
             {
-                for (int i = 0; i < debt.Count; i++)
-                {
-                    amount += debt[i].DebtAmount;
-                    averageInterest += debt[i].IntrestRate;
-                    minimumTotalPayment += debt[i].MinimumPayment;
-                }
-                averageInterest = averageInterest / debt.Count;
-                totalPayment = amount;
-                while (amount != 0)
-                {
-                    j++;
-                    amount += (amount * (averageInterest / 100));
-                    totalPayment += (amount * (averageInterest / 100));
-                    if (amount <= minimumTotalPayment)
-                    {
-                        minimumTotalPayment = amount;
-                    }
-                    amount -= minimumTotalPayment;
-                }
-                Console.WriteLine("total: {0:C}", totalPayment);
-                Console.WriteLine($"months needed to pay: {j}");
+
             }
         }
 
