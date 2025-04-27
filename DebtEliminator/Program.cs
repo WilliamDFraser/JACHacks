@@ -19,6 +19,7 @@ namespace DebtEliminator
             int i=0;
             decimal amount;
             string name;
+            byte methodSelector=0;
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
 
@@ -61,23 +62,23 @@ namespace DebtEliminator
                 Print_Input_Box("Amount left to pay:", Min_Width: 40);
                 while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
                 {
-                   
-                //    postions += 4;
-                    Console.Write("Invalid input! Please enter a positive number.");
+
+                    //    postions += 4;
+                    Print_Input_Box("Invalid input! Please enter a positive number.");
                //     SetCurcorPoition(postions);
                 }
 
 
                 //postions += 4;
-                Print_Input_Box("interest rate:");
+                Print_Input_Box("Monthly interest rate:");
               //  SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
 
                 {
 
-                   // postions += 4;
+                    // postions += 4;
 
-                    Print_Context_Text("Please input a valid answer");
+                    Print_Input_Box("Please input a valid answer");
                   //  SetCurcorPoition(postions);
                 }
                 // postions += 4;
@@ -85,8 +86,8 @@ namespace DebtEliminator
               //  SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
                 {
-                   // postions += 4;
-                    Print_Context_Text("Please input a valid answer");
+                    // postions += 4;
+                    Print_Input_Box("Please input a valid answer");
                    // SetCurcorPoition(postions);
                 }
                 // postions += 4;
@@ -105,13 +106,32 @@ namespace DebtEliminator
 
             } while (input == 'Y');
 
-            Print_Context_Box("Please select one from below : ", '-');
-            Print_Context_Text("1.Snowball Method");
-            Print_Context_Text("2.Avalanche Method");
-            Print_Context_Text("3.Debt Consolidation");
+            while (methodSelector != 4)
+            {
+                Print_Context_Box("Please select one from below : ", '-');
+                Print_Context_Text("1.Snowball Method");
+                Print_Context_Text("2.Avalanche Method");
+                Print_Context_Text("3.Debt Consolidation");
+                Print_Context_Text("4. Exit");
+                while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
+                {
+                    Print_Input_Box("Please select a valid option");
+                }
+                if (methodSelector == 1)
+                {
+                    Snowball();
+                }
+                else if (methodSelector == 2)
+                {
+                    Avalanche();
+                }
+                else if (methodSelector == 3)
+                {
+                    Consolidation();
+                }
+            }
 
-
-            Print_Bottom_Border('-');
+                Print_Bottom_Border('-');
             Print_Context_Text("\n\n\n");
 
             Print_Context_Box("Results : ", '=');
