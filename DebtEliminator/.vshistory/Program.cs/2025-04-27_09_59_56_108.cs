@@ -299,58 +299,43 @@
                 decimal totalPaid = 0;      // Track total money paid
 
                 debts = debts.OrderBy(d => d.DebtAmount).ToList();
-                int i=0;
-                int month = 0;
+
+              
                 decimal snowballPayment = extraPayment;
 
-                decimal amountleft = debts[i].DebtAmount;
-
-             
-                while (amountleft > 0)
+                for (int i = 0; i < debts.Count; i++)
                 {
                     
-                    if (i >= debts.Count)
+                    while (debts[i].DebtAmount == 0)
                     {
-                        i = 0; // Restart checking from first debt every month
-                    }
+                        var debt = debts[i];
 
-                    var debt = debts[i];
-
-                    if (amountleft > 0)
-                    {
-                        month++;
-
-                        // Add interest
                         decimal monthlyInterestRate = debt.IntrestRate / 12;
-                       amountleft += amountleft * monthlyInterestRate;
+                        debt.DebtAmount += debt.DebtAmount * monthlyInterestRate; // Add interest
 
-                        // Pay minimum + snowball to the first debt
                         decimal payment = (i == 0) ? debt.MinimumPayment + snowballPayment : debt.MinimumPayment;
-
-                        if (payment > amountleft)
+                        if (payment >= debt.DebtAmount)
                         {
-                            payment = amountleft; // Don't overpay
+                            payment = debt.DebtAmount; // Don't overpay
                         }
 
-                       amountleft -= payment;
+                        debt.DebtAmount -= payment;
                         totalPaid += payment;
 
-                        if (amountleft <= 0)
+                        if (debt.DebtAmount <= 0)
                         {
-                            // Fully paid
+                            // Debt is paid off
                             snowballPayment += debt.MinimumPayment;
-                            debts.RemoveAt(i);
-                            i--; // Adjust because list shrank
+                           
+                            
                         }
                     }
 
-                    i++;
 
-
+                    Console.WriteLine($"\n Debt-Free after {month} months!");
+                    Console.WriteLine($"Total Paid: {totalPaid:C2}");
+                    Console.ReadLine();
                 }
-                Console.WriteLine($"\n   Debt-Free after {month} months!");
-                Console.WriteLine($"Total Paid: {totalPaid:C2}");
-                Console.ReadLine();
             }
         }
         static void Avalanche(List<DebtType> debts)

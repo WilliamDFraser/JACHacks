@@ -299,14 +299,12 @@
                 decimal totalPaid = 0;      // Track total money paid
 
                 debts = debts.OrderBy(d => d.DebtAmount).ToList();
-                int i=0;
+
                 int month = 0;
                 decimal snowballPayment = extraPayment;
 
-                decimal amountleft = debts[i].DebtAmount;
-
-             
-                while (amountleft > 0)
+                int i = 0;
+                while (debts.Count > 0)
                 {
                     
                     if (i >= debts.Count)
@@ -316,26 +314,26 @@
 
                     var debt = debts[i];
 
-                    if (amountleft > 0)
+                    if (debt.DebtAmount > 0)
                     {
-                        month++;
+                       
 
                         // Add interest
                         decimal monthlyInterestRate = debt.IntrestRate / 12;
-                       amountleft += amountleft * monthlyInterestRate;
+                        debt.DebtAmount += debt.DebtAmount * monthlyInterestRate;
 
                         // Pay minimum + snowball to the first debt
                         decimal payment = (i == 0) ? debt.MinimumPayment + snowballPayment : debt.MinimumPayment;
 
-                        if (payment > amountleft)
+                        if (payment > debt.DebtAmount)
                         {
-                            payment = amountleft; // Don't overpay
+                            payment = debt.DebtAmount; // Don't overpay
                         }
 
-                       amountleft -= payment;
+                        debt.DebtAmount -= payment;
                         totalPaid += payment;
 
-                        if (amountleft <= 0)
+                        if (debt.DebtAmount <= 0)
                         {
                             // Fully paid
                             snowballPayment += debt.MinimumPayment;

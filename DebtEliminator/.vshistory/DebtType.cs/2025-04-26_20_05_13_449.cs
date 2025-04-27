@@ -13,12 +13,12 @@ namespace DebtEliminator
         private decimal _intrestRate;
         private decimal _minimumPayment;
 
-        public DebtType(string type_, decimal debtAmount_,decimal intrestRate_,decimal minimunPayment_ ) 
+        public DebtType(string type_, decimal debtAmount,decimal intrestRate_,decimal minimunPayment_ ) 
 
             {
                 _type = type_;
-            _debtAmount = debtAmount_;
-            _minimumPayment = minimunPayment_;
+            _debtAmount = debtAmount;
+            _minimumPayment = intrestRate_;
             _intrestRate = intrestRate_;
             }
 

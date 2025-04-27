@@ -1,4 +1,4 @@
-﻿namespace DebtEliminator
+namespace DebtEliminator
 {
 
 
@@ -67,6 +67,10 @@
 
                 
                     Print_Input_Box("Invalid input! Please enter a positive number.");
+              
+
+
+                    Console.Write("Invalid input! Please enter a positive number.");
 
                 }
 
@@ -81,9 +85,12 @@
 
                 {
 
+                
+
 
                     Print_Input_Box("Please input a valid answer");
-             
+                
+                    Print_Context_Text("Please input a valid answer");
 
                 }
 
@@ -131,11 +138,11 @@
                 }
                 if (methodSelector == 1)
                 {
-                    Snowball(List_Of_Debts);
+                    Snowball();
                 }
                 else if (methodSelector == 2)
                 {
-                    Avalanche(List_Of_Debts);
+                    Avalanche();
                 }
                 else if (methodSelector == 3)
                 {
@@ -267,7 +274,7 @@
 
             //foreach (var debt in List_Of_Debts)
             //{
-            //    Console.WriteLine($"• {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
+            //    Console.WriteLine($"� {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
             //}
 
             Print_Input_Box("Press any key to continue...", Min_Width: 30);
@@ -276,7 +283,7 @@
 
 
 
-        static void Snowball(List<DebtType> debts)
+        static void Snowball()
         {
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Snowball Method");
@@ -295,65 +302,11 @@
             else
             {
 
-                decimal extraPayment = 200; // Extra money per month
-                decimal totalPaid = 0;      // Track total money paid
 
-                debts = debts.OrderBy(d => d.DebtAmount).ToList();
-                int i=0;
-                int month = 0;
-                decimal snowballPayment = extraPayment;
-
-                decimal amountleft = debts[i].DebtAmount;
-
-             
-                while (amountleft > 0)
-                {
-                    
-                    if (i >= debts.Count)
-                    {
-                        i = 0; // Restart checking from first debt every month
-                    }
-
-                    var debt = debts[i];
-
-                    if (amountleft > 0)
-                    {
-                        month++;
-
-                        // Add interest
-                        decimal monthlyInterestRate = debt.IntrestRate / 12;
-                       amountleft += amountleft * monthlyInterestRate;
-
-                        // Pay minimum + snowball to the first debt
-                        decimal payment = (i == 0) ? debt.MinimumPayment + snowballPayment : debt.MinimumPayment;
-
-                        if (payment > amountleft)
-                        {
-                            payment = amountleft; // Don't overpay
-                        }
-
-                       amountleft -= payment;
-                        totalPaid += payment;
-
-                        if (amountleft <= 0)
-                        {
-                            // Fully paid
-                            snowballPayment += debt.MinimumPayment;
-                            debts.RemoveAt(i);
-                            i--; // Adjust because list shrank
-                        }
-                    }
-
-                    i++;
-
-
-                }
-                Console.WriteLine($"\n   Debt-Free after {month} months!");
-                Console.WriteLine($"Total Paid: {totalPaid:C2}");
-                Console.ReadLine();
             }
+
         }
-        static void Avalanche(List<DebtType> debts)
+        static void Avalanche()
         {
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Avalanche Method");

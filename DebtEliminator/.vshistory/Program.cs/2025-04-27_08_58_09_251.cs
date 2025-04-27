@@ -67,6 +67,10 @@
 
                 
                     Print_Input_Box("Invalid input! Please enter a positive number.");
+              
+
+
+                    Console.Write("Invalid input! Please enter a positive number.");
 
                 }
 
@@ -81,9 +85,12 @@
 
                 {
 
+                
+
 
                     Print_Input_Box("Please input a valid answer");
-             
+                
+                    Print_Context_Text("Please input a valid answer");
 
                 }
 
@@ -295,64 +302,55 @@
             else
             {
 
-                decimal extraPayment = 200; // Extra money per month
-                decimal totalPaid = 0;      // Track total money paid
+                decimal extraPayment = 200; // Extra money to throw at the smallest debt every month
 
+                // Sort debts smallest to largest balance
                 debts = debts.OrderBy(d => d.DebtAmount).ToList();
-                int i=0;
-                int month = 0;
-                decimal snowballPayment = extraPayment;
 
-                decimal amountleft = debts[i].DebtAmount;
-
-             
-                while (amountleft > 0)
+                int month = 1;
+                while (debts.Count > 0)
                 {
-                    
-                    if (i >= debts.Count)
+                    Console.WriteLine($"\nMonth {month}");
+
+                    // Always pay minimums except the first debt
+                    decimal snowballPayment = extraPayment;
+
+                    for (int i = 0; i < debts.Count; i++)
                     {
-                        i = 0; // Restart checking from first debt every month
-                    }
+                        var debt = debts[i];
 
-                    var debt = debts[i];
+                        decimal monthlyInterestRate = debt.IntrestRate/12;
+                        debt.DebtAmount += debt.DebtAmount * monthlyInterestRate; // Apply interest
 
-                    if (amountleft > 0)
-                    {
-                        month++;
-
-                        // Add interest
-                        decimal monthlyInterestRate = debt.IntrestRate / 12;
-                       amountleft += amountleft * monthlyInterestRate;
-
-                        // Pay minimum + snowball to the first debt
                         decimal payment = (i == 0) ? debt.MinimumPayment + snowballPayment : debt.MinimumPayment;
-
-                        if (payment > amountleft)
+                        if (payment > debt.DebtAmount)
                         {
-                            payment = amountleft; // Don't overpay
+                            // If overpaying, adjust payment
+                            payment = debt.DebtAmount;
                         }
 
-                       amountleft -= payment;
-                        totalPaid += payment;
+                        debt.DebtAmount -= payment;
 
-                        if (amountleft <= 0)
+                        if (debt.DebtAmount <= 0)
                         {
-                            // Fully paid
-                            snowballPayment += debt.MinimumPayment;
+                            Console.WriteLine($"--> {debt.Type} PAID OFF!");
+                            snowballPayment += debt.MinimumPayment; // Add its payment to snowball
                             debts.RemoveAt(i);
-                            i--; // Adjust because list shrank
+                            i--; // Adjust for removed item
                         }
                     }
 
-                    i++;
-
-
+                    month++;
                 }
-                Console.WriteLine($"\n   Debt-Free after {month} months!");
-                Console.WriteLine($"Total Paid: {totalPaid:C2}");
-                Console.ReadLine();
+
+                Console.WriteLine($"\n🎉 All debts paid off in {month - 1} months!");
             }
+
+
+
         }
+
+        
         static void Avalanche(List<DebtType> debts)
         {
             char input = 'D'; //Default char
