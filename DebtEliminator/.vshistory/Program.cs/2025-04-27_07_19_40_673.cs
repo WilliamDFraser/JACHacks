@@ -55,15 +55,13 @@ namespace DebtEliminator
                // int postions = -6;
                 Print_Context_Text($"Please enter the data for debt {i}");
                 
-                Print_Input_Box("Name of debt:");
-                name = Console.ReadLine();
-                // SetCurcorPoition(postions);
-                Print_Input_Box("Amount left to pay:", Min_Width: 40);
-                while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
+                name = Print_Input_Box("Name of debt:");
+               // SetCurcorPoition(postions);
+                while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
                 {
                    
                 //    postions += 4;
-                    Console.Write("Invalid input! Please enter a positive number.");
+                    Console.WriteLine("Invalid input! Please enter a positive number.");
                //     SetCurcorPoition(postions);
                 }
 
@@ -127,7 +125,7 @@ namespace DebtEliminator
             return Console.WindowWidth - 1;
         }
 
-        static void Print_Input_Box(string Prompt, int Min_Width = 30, char Border_Char = '-')
+        static string Print_Input_Box(string Prompt, int Min_Width = 30, char Border_Char = '-')
         {
             int ConsoleWidth = Console.WindowWidth;
             int Box_Width = Math.Max(Prompt.Length + 6, Min_Width);
@@ -146,7 +144,7 @@ namespace DebtEliminator
             Console.WriteLine(new string(' ', Left_Padding) + new string(Border_Char, Box_Width));
 
             Console.SetCursorPosition(CursoLeft, CursoTop);
-            
+            return Console.ReadLine();
         }
 
         static void SetCurcorPoition(int postions)

@@ -56,7 +56,6 @@ namespace DebtEliminator
                 Print_Context_Text($"Please enter the data for debt {i}");
                 
                 Print_Input_Box("Name of debt:");
-                name = Console.ReadLine();
                 // SetCurcorPoition(postions);
                 Print_Input_Box("Amount left to pay:", Min_Width: 40);
                 while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
