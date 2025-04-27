@@ -182,7 +182,6 @@ namespace DebtEliminator
             string Input;
             do
             {
-                Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
                 Print_Input_Box(Prompt);
@@ -202,7 +201,6 @@ namespace DebtEliminator
             decimal Value;
             do
             {
-                Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
                 Print_Input_Box(Prompt);
@@ -221,7 +219,6 @@ namespace DebtEliminator
             char choice;
             do
             {
-                Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
                 Print_Input_Box(Prompt);
