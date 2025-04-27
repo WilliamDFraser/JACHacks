@@ -1,4 +1,4 @@
-ï»¿using System.Globalization;
+using System.Globalization;
 
 namespace DebtEliminator
 {
@@ -123,38 +123,27 @@ namespace DebtEliminator
 
                 Print_Context_Box("Please select one from below : ", '-');
                 Print_Context_Text("1.Snowball Method");
-                Print_Context_Text("2.Debt Consolidation");
-                Print_Context_Text("3. Exit");
+                Print_Context_Text("2.Avalanche Method");
+                Print_Context_Text("3.Debt Consolidation");
+                Print_Context_Text("4. Exit");
                 Print_Bottom_Border('-');
 
-                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 4, ErrorMsg: "Please enter a number between 1 - 3");
-
-                switch (methodSelector)
+                while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
                 {
-                    case 1:
-                        Snowball(List_Of_Debts);
-                        break;
-                    case 2:
-                        Consolidation(List_Of_Debts);
-                        break;
+                    Print_Input_Box("Please select a valid option");
                 }
-
-                //while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
-                //{
-                //    Print_Input_Box("Please select a valid option");
-                //}
-                //if (methodSelector == 1)
-                //{
-                //    Snowball();
-                //}
-                //else if (methodSelector == 2)
-                //{
-                //    Avalanche();
-                //}
-                //else if (methodSelector == 3)
-                //{
-                //    Consolidation();
-                //}
+                if (methodSelector == 1)
+                {
+                    Snowball();
+                }
+                else if (methodSelector == 2)
+                {
+                    Avalanche();
+                }
+                else if (methodSelector == 3)
+                {
+                    Consolidation();
+                }
             }
             //Console.Clear();
             //Print_Centered_Title("Debt Eliminator", '*', 3);
@@ -178,7 +167,6 @@ namespace DebtEliminator
             string Input;
             do
             {
-                Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
                 Print_Input_Box(Prompt);
@@ -198,7 +186,6 @@ namespace DebtEliminator
             decimal Value;
             do
             {
-                Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
                 Print_Input_Box(Prompt);
@@ -217,7 +204,6 @@ namespace DebtEliminator
             char choice;
             do
             {
-                Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
                 Print_Input_Box(Prompt);
@@ -240,28 +226,8 @@ namespace DebtEliminator
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
                 Print_Input_Box(Prompt);
-                if (!byte.TryParse(Console.ReadLine(), out Value) || Value < MinValue || Value > MaxValue)
-                {
-                    Print_Context_Text(ErrorMsg, '!');
-                    Console.ReadKey();
-                }
-            } while (Value < MinValue || Value > MaxValue);
-
-            return Value;
-        }
-
-        static void Print_Debt_Summary(List<DebtType> debts)
-        {
-            Console.Clear();
-            Print_Centered_Title("Debt Eliminator", '*', 3);
-            Console.WriteLine("\n\n\n");
-
-            foreach (var debt in debts)
-            {
-                Print_Context_Text($"{debt.Type}: {debt.DebtAmount:C2} at {debt.IntrestRate}% interest");
+                if (!byte.TryParse)
             }
-            Print_Input_Box("Press any key to continue ...");
-            Console.ReadKey();
         }
         
         static int Get_Console_Width()
@@ -356,7 +322,24 @@ namespace DebtEliminator
             //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
             //Console.WriteLine(new string('-', Width));
         }
-        static void Snowball(List<DebtType> debt)
+
+        static void Print_Summary(List<DebtType> List_Of_Debts)
+        {
+            Console.Clear();
+            Print_Centered_Title("Debt Summary", '*', 3);
+
+            //foreach (var debt in List_Of_Debts)
+            //{
+            //    Console.WriteLine($"• {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
+            //}
+
+            Print_Input_Box("Press any key to continue...", Min_Width: 30);
+        }
+
+
+
+
+        static void Snowball()
         {
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Snowball Method");
@@ -375,46 +358,34 @@ namespace DebtEliminator
             else
             {
 
-                decimal extraPayment = 200; // Extra money per month
-                decimal totalPaid = 0;      // Track total money paid
-
-                debts = debts.OrderBy(d => d.DebtAmount).ToList();
-                int i=0;
-                int month = 0;
-                decimal snowballPayment = extraPayment;
-
-                decimal amountleft = debts[i].DebtAmount;
-
-             
-                while (amountleft > 0)
-                {
-                    
-                    if (i >= debts.Count)
-                    {
-                        i = 0; // Restart checking from first debt every month
-                    }
-
-                    var debt = debts[i];
-
-                    if (amountleft > 0)
-                    {
-                        month++;
-
-                        // Add interest
-                        decimal monthlyInterestRate = debt.IntrestRate / 12;
-                       amountleft += amountleft * monthlyInterestRate;
-
 
             }
 
         }
-        static void Consolidation(List<DebtType> debt)
+        static void Avalanche()
         {
-            decimal amount = 0;
-            decimal averageInterest = 0;
-            decimal minimumTotalPayment = 0;
-            decimal totalPayment=0;
-            int j = 0;
+            char input = 'D'; //Default char
+            Console.WriteLine("You have selected Avalanche Method");
+            Console.WriteLine();
+            Console.WriteLine("The Avalanche Method focuses on paying the debt with the highest interest rate");
+            Console.WriteLine("It will then move to the next one");
+            Console.WriteLine("The other payments will be made using the minimum ammount");
+            Console.WriteLine("Once the smallest is gone it will tackle the next one");
+            Console.WriteLine();
+            Console.WriteLine("Would you like to continue with the Avalanche Method? (y/n)");
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            {
+                Console.WriteLine("Please input a valid answer");
+            }
+            if (input == 'N')
+                return;
+            else
+            {
+
+            }
+        }
+        static void Consolidation()
+        {
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Consolidation Method");
             Console.WriteLine();
@@ -430,27 +401,7 @@ namespace DebtEliminator
                 return;
             else
             {
-                for (int i = 0; i < debt.Count; i++)
-                {
-                    amount += debt[i].DebtAmount;
-                    averageInterest += debt[i].IntrestRate;
-                    minimumTotalPayment += debt[i].MinimumPayment;
-                }
-                averageInterest = averageInterest / debt.Count;
-                totalPayment = amount;
-                while (amount != 0)
-                {
-                    j++;
-                    amount += (amount * (averageInterest / 100));
-                    totalPayment += (amount * (averageInterest / 100));
-                    if (amount <= minimumTotalPayment)
-                    {
-                        minimumTotalPayment = amount;
-                    }
-                    amount -= minimumTotalPayment;
-                }
-                Console.WriteLine("total: {0:C}", totalPayment);
-                Console.WriteLine($"months needed to pay: {j}");
+
             }
         }
 

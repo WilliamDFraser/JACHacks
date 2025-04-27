@@ -16,15 +16,12 @@ namespace DebtEliminator
         public DebtType(string type_, decimal debtAmount_,decimal intrestRate_,decimal minimunPayment_ ) 
 
             {
-                _type = type_;
-            _debtAmount = debtAmount_;
-            _minimumPayment = minimunPayment_;
-<<<<<<< HEAD
-=======
             if (debtAmount_ <= 0) throw new ArgumentException("Debt amount must be positive .");
             if (intrestRate_ <= 0) throw new ArgumentException("Interest rate cannot be nagative .");
             if (minimunPayment_ <= 0) throw new ArgumentException("Minimum payment must be positive .");
->>>>>>> f2c1ba39e48d60b70e4a04f6179dbe4eddc5147e
+                _type = type_;
+            _debtAmount = debtAmount_;
+            _minimumPayment = intrestRate_;
             _intrestRate = intrestRate_;
             }
 
@@ -35,7 +32,7 @@ namespace DebtEliminator
 
             set 
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                
                 _type = value; 
             }
         }
@@ -45,7 +42,7 @@ namespace DebtEliminator
 
             set
             {
-                if (value > 0)
+                if (value < 0)
                 {
                     _debtAmount = value;
                 }
@@ -57,7 +54,7 @@ namespace DebtEliminator
 
             set
             {
-                if (value >= 0)
+                if (value < 0)
                 {
                     _intrestRate = value;
                 }
@@ -69,11 +66,14 @@ namespace DebtEliminator
 
             set
             {
-                if (value > 0)
+                if (value < 0)
                 {
                     _minimumPayment = value;
                 }
             }
-        }        
+        }
+
+
+        
     }
 }
