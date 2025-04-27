@@ -56,7 +56,6 @@ namespace DebtEliminator
                 Print_Context_Text($"Please enter the data for debt {i}");
                 
                 Print_Input_Box("Name of debt:");
-                name = Console.ReadLine();
                 // SetCurcorPoition(postions);
                 Print_Input_Box("Amount left to pay:", Min_Width: 40);
                 while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
@@ -91,8 +90,7 @@ namespace DebtEliminator
                 }
                 // postions += 4;
                 //Call debt type constructor
-                DebtType debt = new DebtType(name, amount, interest, minimumPayment);
-                List_Of_Debts.Add(debt);
+
                 Print_Input_Box("Would you like to add another debt? (y/n)");
               //  SetCurcorPoition(postions);
                 while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
@@ -106,9 +104,9 @@ namespace DebtEliminator
             } while (input == 'Y');
 
             Print_Context_Box("Please select one from below : ", '-');
-            Print_Context_Text("1.Snowball Method");
-            Print_Context_Text("2.Avalanche Method");
-            Print_Context_Text("3.Debt Consolidation");
+            Print_Context_Text("1.___");
+            Print_Context_Text("2.___");
+            Print_Context_Text("3.___");
 
 
             Print_Bottom_Border('-');
