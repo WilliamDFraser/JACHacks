@@ -65,9 +65,9 @@ namespace DebtEliminator
                 while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
                 {
 
-                
+                    //    postions += 4;
                     Print_Input_Box("Invalid input! Please enter a positive number.");
-              
+               //     SetCurcorPoition(postions);
 
 
                     Console.Write("Invalid input! Please enter a positive number.");
@@ -75,9 +75,9 @@ namespace DebtEliminator
                 }
 
 
-            
+                //postions += 4;
                 Print_Input_Box("Monthly interest rate:");
-         
+              //  SetCurcorPoition(postions);
 
                 Print_Input_Box("interest rate:");
 
@@ -85,11 +85,11 @@ namespace DebtEliminator
 
                 {
 
-                
+                    // postions += 4;
 
 
                     Print_Input_Box("Please input a valid answer");
-                
+                  //  SetCurcorPoition(postions);
                     Print_Context_Text("Please input a valid answer");
 
                 }
@@ -98,9 +98,9 @@ namespace DebtEliminator
 
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
                 {
-                 
+                    // postions += 4;
                     Print_Input_Box("Please input a valid answer");
-                  
+                   // SetCurcorPoition(postions);
 
                     Print_Context_Text("Please input a valid answer");
 
