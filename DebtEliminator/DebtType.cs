@@ -17,7 +17,7 @@ namespace DebtEliminator
 
             {
                 _type = type_;
-            _debtAmount = debtAmount;
+            _debtAmount = debtAmount_;
             _minimumPayment = minimunPayment_;
             if (debtAmount_ <= 0) throw new ArgumentException("Debt amount must be positive .");
             if (intrestRate_ <= 0) throw new ArgumentException("Interest rate cannot be nagative .");
