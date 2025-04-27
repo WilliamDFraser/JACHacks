@@ -9,7 +9,7 @@ namespace DebtEliminator
         static void Main(string[] args)
         {
             List<DebtType> List_Of_Debts = new List<DebtType>();
-            char input;
+            char Input;
             byte methodSelector = 0;
 
             //bool Add_More_Debts = true;
@@ -101,33 +101,28 @@ namespace DebtEliminator
                 //}
 
                 //Call debt type constructor
-                //DebtType debt = new DebtType(name, amount, interest, minimumPayment);
-                List_Of_Debts.Add(new DebtType(name, amount, interest, minimumPayment));
+                DebtType debt = new DebtType(name, amount, interest, minimumPayment);
+                List_Of_Debts.Add(debt);
+                Print_Input_Box("Would you like to add another debt? (y/n)");
 
-                input = Get_Valid_Choice("Add another debt ? (Y / N) ", ValidChoices: new[] { 'Y', 'N' });
+                while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
-                //Print_Input_Box("Would you like to add another debt? (y/n)");
+                {
 
-                //while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
-                //{
-                //    Print_Context_Text("Please input a valid answer");
-                //}
+                    Print_Context_Text("Please input a valid answer");
+
+                }
+
 
             } while (input == 'Y');
 
             while (methodSelector != 4)
             {
-                Console.Clear();
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-
                 Print_Context_Box("Please select one from below : ", '-');
                 Print_Context_Text("1.Snowball Method");
                 Print_Context_Text("2.Avalanche Method");
                 Print_Context_Text("3.Debt Consolidation");
                 Print_Context_Text("4. Exit");
-                Print_Bottom_Border('-');
-
                 while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
                 {
                     Print_Input_Box("Please select a valid option");
@@ -145,21 +140,25 @@ namespace DebtEliminator
                     Consolidation();
                 }
             }
-            //Console.Clear();
-            //Print_Centered_Title("Debt Eliminator", '*', 3);
-            //Console.WriteLine("\n\n\n");
-            //Print_Context_Box("Please select one from below : ", '-');
-            //Print_Context_Text("1.Snowball Method");
-            //Print_Context_Text("2.Avalanche Method");
-            //Print_Context_Text("3.Debt Consolidation");
+            Console.Clear();
+            Print_Centered_Title("Debt Eliminator", '*', 3);
+            Console.WriteLine("\n\n\n");
+            Print_Context_Box("Please select one from below : ", '-');
+            Print_Context_Text("1.Snowball Method");
+            Print_Context_Text("2.Avalanche Method");
+            Print_Context_Text("3.Debt Consolidation");
 
 
-            //    Print_Bottom_Border('-');
-            //Print_Context_Text("\n\n\n");
+                Print_Bottom_Border('-');
+            Print_Context_Text("\n\n\n");
 
-            //Print_Context_Box("Results : ", '=');
-            //Print_Context_Text("Here's the context of output : ");
-            //Print_Bottom_Border('=');
+            Print_Context_Box("Results : ", '=');
+            Print_Context_Text("Here's the context of output : ");
+            Print_Bottom_Border('=');
+
+            // int padding = (consoleWidth - text.Length) / 2;
+            // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
+            // Console.WriteLine(text.PadLeft(padding + text.Length));
         }
 
         static string Get_Valid_Input(string Prompt, Func<string, bool> Validate, string ErrorMsg)
@@ -199,37 +198,6 @@ namespace DebtEliminator
             return Value;
         }
 
-        static char Get_Valid_Choice(string Prompt, char[] ValidChoices)
-        {
-            char choice;
-            do
-            {
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-                Print_Input_Box(Prompt);
-                if (!char.TryParse(Console.ReadLine().ToUpper(), out choice))
-                {
-                    Print_Context_Text("Invalid input !", '!');
-                    Console.ReadKey();
-                }
-            } while (!ValidChoices.Contains(choice));
-
-            return choice;
-        }
-
-        static byte Get_Valid_Byte_Input(string Prompt, byte MinValue, byte MaxValue, string ErrorMsg)
-        {
-            byte Value;
-            do
-            {
-                Console.Clear();
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-                Print_Input_Box(Prompt);
-                if (!byte.TryParse)
-            }
-        }
-        
         static int Get_Console_Width()
         {
             return Console.WindowWidth - 1;
