@@ -218,18 +218,6 @@ namespace DebtEliminator
         //    Console.WriteLine(new string('=', Width));
         //}
 
-        static void Print_Summary(List<DebtType> List_Of_Debts)
-        {
-            Console.Clear();
-            Print_Centered_Title("Debt Summary", '*', 3);
-
-            foreach (var debt in List_Of_Debts)
-            {
-                Console.WriteLine($"• {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
-            }
-
-            Print_Input_Box("Press any key to continue...", Min_Width: 30);
-        }
 
 
 
