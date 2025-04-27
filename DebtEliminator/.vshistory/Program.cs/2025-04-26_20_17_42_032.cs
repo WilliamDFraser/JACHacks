@@ -23,6 +23,7 @@ namespace DebtEliminator
             while (Add_More_Debts)
             {
                 Debt_Count++;
+                Console.Clear();
 
                 string Name = Print_Input_Box("Name of debt:", Min_Width: 40);
                 decimal Amount;
@@ -36,7 +37,6 @@ namespace DebtEliminator
                 char Choice;
                 do
                 {
-
                     string Answer = Print_Input_Box("Add another debt ? (Y / N)", Min_Width: 20);
                     Choice = char.ToUpper(Answer[0]);
 
@@ -146,11 +146,10 @@ namespace DebtEliminator
             return Console.ReadLine();
         }
 
-        //static void SetCurcorPoition(int postions)
-        //{
-        //    Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
-        //}
-
+        static void SetCurcorPoition(int postions)
+        {
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
+        }
         static void Print_Context_Text(string Text, char PaddingChar = ' ')
         {
             int ConsoleWidth = Get_Console_Width();
@@ -194,7 +193,20 @@ namespace DebtEliminator
             //}
         }
 
-        static void Print_Context_Box(string Header, char Board_Char)
+        static void Print_Centex_Title(string Title, char Board_Char, int Box_Padding = 1)
+        {
+            int ConsoleWidth = Get_Console_Width();
+            int Box_Width = Math.Min(Title.Length + (Box_Padding * 2) + 2, ConsoleWidth - 2);
+
+            Print_Context_Text(new string(Board_Char, Box_Width));
+
+            string Padding_Title = Title.PadLeft(Title.Length + Box_Padding).PadRight(Title.Length + (Box_Padding * 2));
+            Print_Context_Text(Board_Char + Padding_Title + Board_Char);
+
+            Print_Context_Text(new string(Board_Char, Box_Width));
+        }
+
+            static void Print_Context_Box(string Header, char Board_Char)
         {
             int ConsoleWidth = Get_Console_Width();
             int BoxWidth = Math.Min(Header.Length + 4, ConsoleWidth - 2);
@@ -212,15 +224,22 @@ namespace DebtEliminator
             //Console.WriteLine(new string('-', Width));
         }
 
+        //static void Print_OutPut_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('=', Width));
+        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+        //    Console.WriteLine(new string('=', Width));
+        //}
+
         static void Print_Summary(List<DebtType> List_Of_Debts)
         {
             Console.Clear();
-            Print_Centered_Title("Debt Summary", '*', 3);
+            Print_Centex_Title("Debt Summary", '*', 3);
 
-            foreach (var debt in List_Of_Debts)
-            {
-                Console.WriteLine($"• {debt.Name}: {debt.DebtAmount:C2}(Interest : {debt._intrestRate}%)");
-            }
+            //foreach (var debt in List_Of_Debts)
+            //{
+            //    Console.WriteLine($"• {debt.Name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
+            //}
 
             Print_Input_Box("Press any key to continue...", Min_Width: 30);
         }

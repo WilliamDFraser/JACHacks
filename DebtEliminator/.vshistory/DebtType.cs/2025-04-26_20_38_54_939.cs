@@ -16,9 +16,6 @@ namespace DebtEliminator
         public DebtType(string type_, decimal debtAmount_,decimal intrestRate_,decimal minimunPayment_ ) 
 
             {
-            if (debtAmount_ <= 0) throw new ArgumentException("Debt amount must be positive .");
-            if (intrestRate_ <= 0) throw new ArgumentException("Interest rate cannot be nagative .");
-            if (minimunPayment_ <= 0) throw new ArgumentException("Minimum payment must be positive .");
                 _type = type_;
             _debtAmount = debtAmount_;
             _minimumPayment = intrestRate_;

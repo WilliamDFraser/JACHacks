@@ -23,6 +23,7 @@ namespace DebtEliminator
             while (Add_More_Debts)
             {
                 Debt_Count++;
+                Console.Clear();
 
                 string Name = Print_Input_Box("Name of debt:", Min_Width: 40);
                 decimal Amount;
@@ -36,7 +37,6 @@ namespace DebtEliminator
                 char Choice;
                 do
                 {
-
                     string Answer = Print_Input_Box("Add another debt ? (Y / N)", Min_Width: 20);
                     Choice = char.ToUpper(Answer[0]);
 
@@ -146,11 +146,10 @@ namespace DebtEliminator
             return Console.ReadLine();
         }
 
-        //static void SetCurcorPoition(int postions)
-        //{
-        //    Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
-        //}
-
+        static void SetCurcorPoition(int postions)
+        {
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
+        }
         static void Print_Context_Text(string Text, char PaddingChar = ' ')
         {
             int ConsoleWidth = Get_Console_Width();
@@ -212,6 +211,13 @@ namespace DebtEliminator
             //Console.WriteLine(new string('-', Width));
         }
 
+        //static void Print_OutPut_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('=', Width));
+        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+        //    Console.WriteLine(new string('=', Width));
+        //}
+
         static void Print_Summary(List<DebtType> List_Of_Debts)
         {
             Console.Clear();
@@ -219,7 +225,7 @@ namespace DebtEliminator
 
             foreach (var debt in List_Of_Debts)
             {
-                Console.WriteLine($"• {debt.Name}: {debt.DebtAmount:C2}(Interest : {debt._intrestRate}%)");
+                Console.WriteLine($"• {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
             }
 
             Print_Input_Box("Press any key to continue...", Min_Width: 30);
