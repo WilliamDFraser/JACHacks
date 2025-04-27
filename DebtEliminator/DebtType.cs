@@ -18,7 +18,7 @@ namespace DebtEliminator
             {
                 _type = type_;
             _debtAmount = debtAmount;
-            _minimumPayment = intrestRate_;
+            _minimumPayment = minimunPayment_;
             _intrestRate = intrestRate_;
             }
 

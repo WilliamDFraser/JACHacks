@@ -127,7 +127,7 @@ namespace DebtEliminator
                 }
                 else if (methodSelector == 3)
                 {
-                    Consolidation();
+                    Consolidation(List_Of_Debts);
                 }
             }
 
@@ -302,8 +302,13 @@ namespace DebtEliminator
 
             }
         }
-        static void Consolidation()
+        static void Consolidation(List<DebtType> debt)
         {
+            decimal amount = 0;
+            decimal averageInterest = 0;
+            decimal minimumTotalPayment = 0;
+            decimal totalPayment=0;
+            int j = 0;
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Consolidation Method");
             Console.WriteLine();
@@ -319,7 +324,27 @@ namespace DebtEliminator
                 return;
             else
             {
-
+                for (int i = 0; i < debt.Count; i++)
+                {
+                    amount += debt[i].DebtAmount;
+                    averageInterest += debt[i].IntrestRate;
+                    minimumTotalPayment += debt[i].MinimumPayment;
+                }
+                averageInterest = averageInterest / debt.Count;
+                totalPayment = amount;
+                while (amount != 0)
+                {
+                    j++;
+                    amount += (amount * (averageInterest / 100));
+                    totalPayment += (amount * (averageInterest / 100));
+                    if (amount <= minimumTotalPayment)
+                    {
+                        minimumTotalPayment = amount;
+                    }
+                    amount -= minimumTotalPayment;
+                }
+                Console.WriteLine("total: {0:C}", totalPayment);
+                Console.WriteLine($"months: {j}");
             }
         }
 
