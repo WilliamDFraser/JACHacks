@@ -128,37 +128,22 @@ namespace DebtEliminator
                 Print_Context_Text("4. Exit");
                 Print_Bottom_Border('-');
 
-                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 4, ErrorMsg: "Please enter a number between 1 - 4");
-
-                switch (methodSelector)
+                while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
                 {
-                    case 1:
-                        Snowball(List_Of_Debts);
-                        break;
-                    case 2:
-                        Avalanche(List_Of_Debts);
-                        break;
-                    case 3:
-                        Consolidation(List_Of_Debts);
-                        break;
+                    Print_Input_Box("Please select a valid option");
                 }
-
-                //while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
-                //{
-                //    Print_Input_Box("Please select a valid option");
-                //}
-                //if (methodSelector == 1)
-                //{
-                //    Snowball();
-                //}
-                //else if (methodSelector == 2)
-                //{
-                //    Avalanche();
-                //}
-                //else if (methodSelector == 3)
-                //{
-                //    Consolidation();
-                //}
+                if (methodSelector == 1)
+                {
+                    Snowball();
+                }
+                else if (methodSelector == 2)
+                {
+                    Avalanche();
+                }
+                else if (methodSelector == 3)
+                {
+                    Consolidation();
+                }
             }
             //Console.Clear();
             //Print_Centered_Title("Debt Eliminator", '*', 3);
@@ -357,6 +342,7 @@ namespace DebtEliminator
             //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
             //Console.WriteLine(new string('-', Width));
         }
+
         static void Snowball()
         {
             char input = 'D'; //Default char

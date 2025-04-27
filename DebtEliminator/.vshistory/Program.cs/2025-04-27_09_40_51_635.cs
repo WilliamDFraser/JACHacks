@@ -357,6 +357,7 @@ namespace DebtEliminator
             //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
             //Console.WriteLine(new string('-', Width));
         }
+
         static void Snowball()
         {
             char input = 'D'; //Default char
