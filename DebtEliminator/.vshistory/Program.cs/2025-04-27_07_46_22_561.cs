@@ -19,7 +19,6 @@ namespace DebtEliminator
             int i = 0;
             decimal amount;
             string name;
-            byte methodSelector=0;
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
 
@@ -65,19 +64,12 @@ namespace DebtEliminator
                 while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
                 {
 
-                
-                    Print_Input_Box("Invalid input! Please enter a positive number.");
-              
-
 
                     Console.Write("Invalid input! Please enter a positive number.");
 
                 }
 
 
-            
-                Print_Input_Box("Monthly interest rate:");
-         
 
                 Print_Input_Box("interest rate:");
 
@@ -85,11 +77,8 @@ namespace DebtEliminator
 
                 {
 
-                
 
 
-                    Print_Input_Box("Please input a valid answer");
-                
                     Print_Context_Text("Please input a valid answer");
 
                 }
@@ -98,9 +87,6 @@ namespace DebtEliminator
 
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
                 {
-                 
-                    Print_Input_Box("Please input a valid answer");
-                  
 
                     Print_Context_Text("Please input a valid answer");
 
@@ -122,30 +108,6 @@ namespace DebtEliminator
 
             } while (input == 'Y');
 
-            while (methodSelector != 4)
-            {
-                Print_Context_Box("Please select one from below : ", '-');
-                Print_Context_Text("1.Snowball Method");
-                Print_Context_Text("2.Avalanche Method");
-                Print_Context_Text("3.Debt Consolidation");
-                Print_Context_Text("4. Exit");
-                while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
-                {
-                    Print_Input_Box("Please select a valid option");
-                }
-                if (methodSelector == 1)
-                {
-                    Snowball();
-                }
-                else if (methodSelector == 2)
-                {
-                    Avalanche();
-                }
-                else if (methodSelector == 3)
-                {
-                    Consolidation();
-                }
-            }
             Console.Clear();
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
@@ -155,7 +117,7 @@ namespace DebtEliminator
             Print_Context_Text("3.Debt Consolidation");
 
 
-                Print_Bottom_Border('-');
+            Print_Bottom_Border('-');
             Print_Context_Text("\n\n\n");
 
             Print_Context_Box("Results : ", '=');
@@ -194,11 +156,10 @@ namespace DebtEliminator
 
         }
 
-        //static void SetCurcorPoition(int postions)
-        //{
-        //    Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
-        //}
-
+        static void SetCurcorPoition(int postions)
+        {
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
+        }
         static void Print_Context_Text(string Text, char PaddingChar = ' ')
         {
             int ConsoleWidth = Get_Console_Width();
@@ -260,6 +221,13 @@ namespace DebtEliminator
             //Console.WriteLine(new string('-', Width));
         }
 
+        //static void Print_OutPut_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('=', Width));
+        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+        //    Console.WriteLine(new string('=', Width));
+        //}
+
         static void Print_Summary(List<DebtType> List_Of_Debts)
         {
             Console.Clear();
@@ -294,7 +262,6 @@ namespace DebtEliminator
                 return;
             else
             {
-
 
             }
 

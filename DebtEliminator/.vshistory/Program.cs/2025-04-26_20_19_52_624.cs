@@ -14,148 +14,102 @@ namespace DebtEliminator
             //int i = 0;
             //string name;
             //decimal ammount;
-            decimal interest = 0;
-            decimal minimumPayment = 0;
-            int i = 0;
+            decimal interest=0;
+            decimal minimumPayment=0;
+            int i=0;
             decimal amount;
             string name;
-            byte methodSelector=0;
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
 
-            //while (Add_More_Debts)
-            //{
-            //    Debt_Count++;
+            while (Add_More_Debts)
+            {
+                Debt_Count++;
+                Console.Clear();
 
+                name = Print_Input_Box("Name of debt:");
+                
+                while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
+                {
+                    Console.WriteLine("Invalid input! Please enter a positive number.");
+                }
 
-            //    name = Print_Input_Box("Name of debt:");
+                List_Of_Debts.Add(new DebtType(name, amount, interest, minimumPayment));
 
-            //    while (!decimal.TryParse(Print_Input_Box("Amount left to pay:", Min_Width: 40), out amount) || amount <= 0)
-            //    {
-            //        Console.WriteLine("Invalid input! Please enter a positive number.");
-            //    }
+                char Choice;
+                do
+                {
+                    string Answer = Print_Input_Box("Add another debt ? (Y / N)", Min_Width: 20);
+                    Choice = char.ToUpper(Answer[0]);
 
-            //    List_Of_Debts.Add(new DebtType(name, amount, interest, minimumPayment));
-
-            //    char Choice;
-            //    do
-            //    {
-            //        string Answer = Print_Input_Box("Add another debt ? (Y / N)", Min_Width: 20);
-            //        Choice = char.ToUpper(Answer[0]);
-
-            //    } while (Choice != 'Y' && Choice != 'N');
-            //    Add_More_Debts = (Choice == 'Y');
-            //}
-            //  Print_Summary(List_Of_Debts);
+                } while (Choice != 'Y' && Choice != 'N');
+                Add_More_Debts = (Choice == 'Y');
+            }
+          //  Print_Summary(List_Of_Debts);
 
             do
             {
 
-                Console.Clear();
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-                i++;
 
+                i++;
+                int postions = -6;
                 Print_Context_Text($"Please enter the data for debt {i}");
 
-                Print_Input_Box("Name of debt:");
+                Print_Context_Text("Name of debt:");
+                SetCurcorPoition(postions);
                 name = Console.ReadLine();
-
-                Print_Input_Box("Amount left to pay:", Min_Width: 40);
+                Print_Context_Text("Ammount left to pay:");
+                postions += 2;
+                SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
                 {
-
-                
-                    Print_Input_Box("Invalid input! Please enter a positive number.");
-              
-
-
-                    Console.Write("Invalid input! Please enter a positive number.");
-
+                    postions += 2;
+                    Print_Context_Text("Please input a valid answer");
+                    SetCurcorPoition(postions);
                 }
-
-
-            
-                Print_Input_Box("Monthly interest rate:");
-         
-
-                Print_Input_Box("interest rate:");
-
+                postions += 2;
+                Print_Context_Text("interest rate:");
+                SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
 
                 {
 
-                
+                    postions += 2;
 
-
-                    Print_Input_Box("Please input a valid answer");
-                
                     Print_Context_Text("Please input a valid answer");
-
+                    SetCurcorPoition(postions);
                 }
-
-                Print_Input_Box("Minimum Monthly Payment:");
-
+                postions += 2;
+                Print_Context_Text("Minimum Monthly Payment:");
+                SetCurcorPoition(postions);
                 while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
                 {
-                 
-                    Print_Input_Box("Please input a valid answer");
-                  
-
+                    postions += 2;
                     Print_Context_Text("Please input a valid answer");
-
+                    SetCurcorPoition(postions);
                 }
-
+                postions += 2;
                 //Call debt type constructor
-                DebtType debt = new DebtType(name, amount, interest, minimumPayment);
-                List_Of_Debts.Add(debt);
-                Print_Input_Box("Would you like to add another debt? (y/n)");
 
+                Print_Context_Text("Would you like to add another debt? (y/n)");
+                SetCurcorPoition(postions);
                 while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))//fixed to upper
 
                 {
-
+                    postions += 2;
                     Print_Context_Text("Please input a valid answer");
-
+                    SetCurcorPoition(postions);
                 }
-
 
             } while (input == 'Y');
 
-            while (methodSelector != 4)
-            {
-                Print_Context_Box("Please select one from below : ", '-');
-                Print_Context_Text("1.Snowball Method");
-                Print_Context_Text("2.Avalanche Method");
-                Print_Context_Text("3.Debt Consolidation");
-                Print_Context_Text("4. Exit");
-                while (!byte.TryParse(Console.ReadLine(), out methodSelector) || methodSelector > 4)
-                {
-                    Print_Input_Box("Please select a valid option");
-                }
-                if (methodSelector == 1)
-                {
-                    Snowball();
-                }
-                else if (methodSelector == 2)
-                {
-                    Avalanche();
-                }
-                else if (methodSelector == 3)
-                {
-                    Consolidation();
-                }
-            }
-            Console.Clear();
-            Print_Centered_Title("Debt Eliminator", '*', 3);
-            Console.WriteLine("\n\n\n");
             Print_Context_Box("Please select one from below : ", '-');
-            Print_Context_Text("1.Snowball Method");
-            Print_Context_Text("2.Avalanche Method");
-            Print_Context_Text("3.Debt Consolidation");
+            Print_Context_Text("1.___");
+            Print_Context_Text("2.___");
+            Print_Context_Text("3.___");
 
 
-                Print_Bottom_Border('-');
+            Print_Bottom_Border('-');
             Print_Context_Text("\n\n\n");
 
             Print_Context_Box("Results : ", '=');
@@ -172,7 +126,7 @@ namespace DebtEliminator
             return Console.WindowWidth - 1;
         }
 
-        static void Print_Input_Box(string Prompt, int Min_Width = 30, char Border_Char = '-')
+        static string Print_Input_Box(string Prompt, int Min_Width = 30, char Border_Char = '-')
         {
             int ConsoleWidth = Console.WindowWidth;
             int Box_Width = Math.Max(Prompt.Length + 6, Min_Width);
@@ -191,14 +145,13 @@ namespace DebtEliminator
             Console.WriteLine(new string(' ', Left_Padding) + new string(Border_Char, Box_Width));
 
             Console.SetCursorPosition(CursoLeft, CursoTop);
-
+            return Console.ReadLine();
         }
 
-        //static void SetCurcorPoition(int postions)
-        //{
-        //    Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
-        //}
-
+        static void SetCurcorPoition(int postions)
+        {
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 1, (Console.WindowHeight / 2) + postions);
+        }
         static void Print_Context_Text(string Text, char PaddingChar = ' ')
         {
             int ConsoleWidth = Get_Console_Width();
@@ -260,15 +213,22 @@ namespace DebtEliminator
             //Console.WriteLine(new string('-', Width));
         }
 
+        //static void Print_OutPut_Box(string Header, int Width)
+        //{
+        //    Console.WriteLine(new string('=', Width));
+        //    Console.WriteLine("|| " + Header.PadRight(Width - 5) + " ||");
+        //    Console.WriteLine(new string('=', Width));
+        //}
+
         static void Print_Summary(List<DebtType> List_Of_Debts)
         {
             Console.Clear();
             Print_Centered_Title("Debt Summary", '*', 3);
 
-            //foreach (var debt in List_Of_Debts)
-            //{
-            //    Console.WriteLine($"• {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
-            //}
+            foreach (var debt in List_Of_Debts)
+            {
+                Console.WriteLine($"• {debt.name}: {debt.DebtAmount:C2}(Interest : {debt.Interest}%)");
+            }
 
             Print_Input_Box("Press any key to continue...", Min_Width: 30);
         }
@@ -294,7 +254,6 @@ namespace DebtEliminator
                 return;
             else
             {
-
 
             }
 

@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Suheng\\JACHacks\\DebtEliminator\\",
+  "WorkspaceRootPath": "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EECB59BC-87DB-4970-8F21-F84542810F13}|DebtEliminator.csproj|c:\\users\\suheng\\jachacks\\debteliminator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EECB59BC-87DB-4970-8F21-F84542810F13}|DebtEliminator.csproj|c:\\users\\islam\\desktop\\jachacks\\debteliminator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EECB59BC-87DB-4970-8F21-F84542810F13}|DebtEliminator.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,21 +14,27 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Suheng\\JACHacks\\DebtEliminator\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
+<<<<<<< HEAD
               "ToolTip": "C:\\Users\\Suheng\\JACHacks\\DebtEliminator\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+=======
+              "ToolTip": "C:\\Users\\islam\\Desktop\\JACHacks\\DebtEliminator\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+<<<<<<< HEAD
+              "ViewState": "AgIAAPIAAAAASt+g2E4hwAgBAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAHAAAAAAAAAAAAAEwHAAAAA5AAAAAAAAAA==",
+>>>>>>> a609fcff377d7eccb94579a092cc03e147405493
+>>>>>>> 1b129a1d78ea04d03cd9740ee10c2eecc22bc898
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-26T15:54:14.932Z",
               "EditorCaption": ""

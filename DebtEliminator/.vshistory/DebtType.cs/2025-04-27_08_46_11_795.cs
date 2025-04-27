@@ -19,8 +19,7 @@ namespace DebtEliminator
             if (debtAmount_ <= 0) throw new ArgumentException("Debt amount must be positive .");
             if (intrestRate_ <= 0) throw new ArgumentException("Interest rate cannot be nagative .");
             if (minimunPayment_ <= 0) throw new ArgumentException("Minimum payment must be positive .");
-
-            _type = type_;
+                _type = type_;
             _debtAmount = debtAmount_;
             _minimumPayment = intrestRate_;
             _intrestRate = intrestRate_;
@@ -33,7 +32,7 @@ namespace DebtEliminator
 
             set 
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                
                 _type = value; 
             }
         }
@@ -43,7 +42,7 @@ namespace DebtEliminator
 
             set
             {
-                if (value > 0)
+                if (value < 0)
                 {
                     _debtAmount = value;
                 }
@@ -55,7 +54,7 @@ namespace DebtEliminator
 
             set
             {
-                if (value >= 0)
+                if (value < 0)
                 {
                     _intrestRate = value;
                 }
@@ -67,11 +66,14 @@ namespace DebtEliminator
 
             set
             {
-                if (value > 0)
+                if (value < 0)
                 {
                     _minimumPayment = value;
                 }
             }
-        }        
+        }
+
+
+        
     }
 }
