@@ -127,7 +127,7 @@ namespace DebtEliminator
                 Print_Context_Text("3. Exit");
                 Print_Bottom_Border('-');
 
-                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 3 ) : ", MinValue: 1, MaxValue: 3, ErrorMsg: "Please enter a number between 1 - 3");
+                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 3, ErrorMsg: "Please enter a number between 1 - 3");
 
                 switch (methodSelector)
                 {
@@ -356,7 +356,7 @@ namespace DebtEliminator
             //Console.WriteLine("| " + Header.PadRight(Width - 4) + " |");
             //Console.WriteLine(new string('-', Width));
         }
-        static void Snowball(List<DebtType> debts)
+        static void Snowball(List<DebtType> debt)
         {
             char input = 'D'; //Default char
             Console.WriteLine("You have selected Snowball Method");
@@ -453,7 +453,6 @@ namespace DebtEliminator
                         }
                         Console.WriteLine("total: {0:C}", totalPayment);
                         Console.WriteLine($"months needed to pay: {j}");
-                Console.ReadLine();
                     }
                 }
 
