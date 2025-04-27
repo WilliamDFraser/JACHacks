@@ -7,28 +7,21 @@ namespace DebtEliminator
         static void Main(string[] args)
         {
             List<DebtType> List_Of_Debts = new List<DebtType>();
-            char Input;
-            byte methodSelector = 0;
+            bool Add_More_Debts = true;
+            int Debt_Count = 0;
 
-            string name;
-            decimal amount, interest, minimumPayment;
-
-            //bool Add_More_Debts = true;
-            //int Debt_Count = 0;
-
-            //char input = 'D'; //Default char
+            char input = 'D'; //Default char
             //int i = 0;
             //string name;
             //decimal ammount;
-            //decimal interest = 0;
-            //decimal minimumPayment = 0;
-            //int i = 0;
-            //decimal amount;
-            //string name;
-            //byte methodSelector=0;
-
-            //Print_Centered_Title("Debt Eliminator", '*', 3);
-            //Console.WriteLine("\n\n\n");
+            decimal interest = 0;
+            decimal minimumPayment = 0;
+            int i = 0;
+            decimal amount;
+            string name;
+            byte methodSelector=0;
+            Print_Centered_Title("Debt Eliminator", '*', 3);
+            Console.WriteLine("\n\n\n");
 
             //while (Add_More_Debts)
             //{
@@ -57,9 +50,11 @@ namespace DebtEliminator
 
             do
             {
+
                 Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
+                i++;
 
                 Print_Context_Text($"Please enter the data for debt {i}");
 
@@ -170,43 +165,6 @@ namespace DebtEliminator
             // int padding = (consoleWidth - text.Length) / 2;
             // Console.WriteLine(text.PadLeft(padding + text.Length)); int padding = (consoleWidth - text.Length) / 2;
             // Console.WriteLine(text.PadLeft(padding + text.Length));
-        }
-
-        static string Get_Valid_Input(string Prompt, Func<string, bool> Validate, string ErrorMsg)
-        {
-            string Input;
-            do
-            {
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-                Print_Input_Box(Prompt);
-                Input = Console.ReadLine();
-                if (!Validate(Input))
-                {
-                    Print_Context_Text(ErrorMsg, '!');
-                    Console.ReadKey();
-                }
-            } while (!Validate(Input));
-
-            return Input;
-        }
-
-        static decimal Get_Valid_Decimal_Input(string Prompt, decimal Min_Value, string ErrorMsg)
-        {
-            decimal Value;
-            do
-            {
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
-                Print_Input_Box(Prompt);
-                if (!decimal.TryParse(Console.ReadLine(), out Value) || Value < Min_Value)
-                {
-                    Print_Context_Text(ErrorMsg, '!');
-                    Console.ReadKey();
-                }
-            } while (Value < Min_Value);
-
-            return Value;
         }
 
         static int Get_Console_Width()
