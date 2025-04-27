@@ -102,8 +102,7 @@ namespace DebtEliminator
                 //    postions += 2;
                     Print_Context_Text("Please input a valid answer");
                  //   SetCurcorPoition(postions);
-                }
-
+                }a
 
             } while (input == 'Y');
             

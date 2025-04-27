@@ -104,7 +104,6 @@ namespace DebtEliminator
                  //   SetCurcorPoition(postions);
                 }
 
-
             } while (input == 'Y');
             
             Console.Clear();

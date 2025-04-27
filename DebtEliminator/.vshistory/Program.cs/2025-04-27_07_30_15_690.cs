@@ -104,12 +104,10 @@ namespace DebtEliminator
                  //   SetCurcorPoition(postions);
                 }
 
-
             } while (input == 'Y');
-            
-            Console.Clear();
             Print_Centered_Title("Debt Eliminator", '*', 3);
             Console.WriteLine("\n\n\n");
+            Console.Clear();
             Print_Context_Box("Please select one from below : ", '-');
             Print_Context_Text("1.___");
             Print_Context_Text("2.___");

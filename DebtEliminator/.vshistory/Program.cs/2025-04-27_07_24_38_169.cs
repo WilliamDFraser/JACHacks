@@ -50,9 +50,7 @@ namespace DebtEliminator
             do
             {
 
-                Console.Clear();
-                Print_Centered_Title("Debt Eliminator", '*', 3);
-                Console.WriteLine("\n\n\n");
+
                 i++;
                // int postions = -6;
                 Print_Context_Text($"Please enter the data for debt {i}");
@@ -104,12 +102,8 @@ namespace DebtEliminator
                  //   SetCurcorPoition(postions);
                 }
 
-
             } while (input == 'Y');
-            
-            Console.Clear();
-            Print_Centered_Title("Debt Eliminator", '*', 3);
-            Console.WriteLine("\n\n\n");
+
             Print_Context_Box("Please select one from below : ", '-');
             Print_Context_Text("1.___");
             Print_Context_Text("2.___");
