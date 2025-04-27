@@ -115,7 +115,7 @@ namespace DebtEliminator
 
             } while (input == 'Y');
 
-            while (methodSelector != 3)
+            while (methodSelector != 4)
             {
                 Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
@@ -127,7 +127,7 @@ namespace DebtEliminator
                 Print_Context_Text("3. Exit");
                 Print_Bottom_Border('-');
 
-                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 3, ErrorMsg: "Please enter a number between 1 - 3");
+                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 4, ErrorMsg: "Please enter a number between 1 - 3");
 
                 switch (methodSelector)
                 {

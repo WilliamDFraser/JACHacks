@@ -83,7 +83,7 @@ namespace DebtEliminator
                 //    Print_Input_Box("Invalid input! Please enter a positive number.");            
                 //    Console.Write("Invalid input! Please enter a positive number.");
                 //}
-
+                
                 //Print_Input_Box("Monthly interest rate:");       
                 //Print_Input_Box("interest rate:");
 
@@ -115,7 +115,7 @@ namespace DebtEliminator
 
             } while (input == 'Y');
 
-            while (methodSelector != 3)
+            while (methodSelector != 4)
             {
                 Console.Clear();
                 Print_Centered_Title("Debt Eliminator", '*', 3);
@@ -127,7 +127,7 @@ namespace DebtEliminator
                 Print_Context_Text("3. Exit");
                 Print_Bottom_Border('-');
 
-                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 3, ErrorMsg: "Please enter a number between 1 - 3");
+                methodSelector = Get_Valid_Byte_Input("Select option ( 1 - 4 ) : ", MinValue: 1, MaxValue: 4, ErrorMsg: "Please enter a number between 1 - 3");
 
                 switch (methodSelector)
                 {
@@ -263,7 +263,7 @@ namespace DebtEliminator
             Print_Input_Box("Press any key to continue ...");
             Console.ReadKey();
         }
-
+        
         static int Get_Console_Width()
         {
             return Console.WindowWidth - 1;
@@ -379,16 +379,16 @@ namespace DebtEliminator
                 decimal totalPaid = 0;      // Track total money paid
 
                 debts = debts.OrderBy(d => d.DebtAmount).ToList();
-                int i = 0;
+                int i=0;
                 int month = 0;
                 decimal snowballPayment = extraPayment;
 
                 decimal amountleft = debts[i].DebtAmount;
 
-
+             
                 while (amountleft > 0)
                 {
-
+                    
                     if (i >= debts.Count)
                     {
                         i = 0; // Restart checking from first debt every month
@@ -402,61 +402,57 @@ namespace DebtEliminator
 
                         // Add interest
                         decimal monthlyInterestRate = debt.IntrestRate / 12;
-                        amountleft += amountleft * monthlyInterestRate;
+                       amountleft += amountleft * monthlyInterestRate;
 
 
-                    }
+            }
 
+        }
+        static void Consolidation(List<DebtType> debt)
+        {
+            decimal amount = 0;
+            decimal averageInterest = 0;
+            decimal minimumTotalPayment = 0;
+            decimal totalPayment=0;
+            int j = 0;
+            char input = 'D'; //Default char
+            Console.WriteLine("You have selected Consolidation Method");
+            Console.WriteLine();
+            Console.WriteLine("The Consolidation Method transferring all debts into one big loan");
+            Console.WriteLine("Usually with a lower interest rate");
+            Console.WriteLine();
+            Console.WriteLine("Would you like to continue with the Consolidation Method? (y/n)");
+            while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
+            {
+                Console.WriteLine("Please input a valid answer");
+            }
+            if (input == 'N')
+                return;
+            else
+            {
+                for (int i = 0; i < debt.Count; i++)
+                {
+                    amount += debt[i].DebtAmount;
+                    averageInterest += debt[i].IntrestRate;
+                    minimumTotalPayment += debt[i].MinimumPayment;
                 }
+                averageInterest = averageInterest / debt.Count;
+                totalPayment = amount;
+                while (amount != 0)
+                {
+                    j++;
+                    amount += (amount * (averageInterest / 100));
+                    totalPayment += (amount * (averageInterest / 100));
+                    if (amount <= minimumTotalPayment)
+                    {
+                        minimumTotalPayment = amount;
+                    }
+                    amount -= minimumTotalPayment;
+                }
+                Console.WriteLine("total: {0:C}", totalPayment);
+                Console.WriteLine($"months needed to pay: {j}");
             }
         }
-                static void Consolidation(List<DebtType> debt)
-                {
-                    decimal amount = 0;
-                    decimal averageInterest = 0;
-                    decimal minimumTotalPayment = 0;
-                    decimal totalPayment = 0;
-                    int j = 0;
-                    char input = 'D'; //Default char
-                    Console.WriteLine("You have selected Consolidation Method");
-                    Console.WriteLine();
-                    Console.WriteLine("The Consolidation Method transferring all debts into one big loan");
-                    Console.WriteLine("Usually with a lower interest rate");
-                    Console.WriteLine();
-                    Console.WriteLine("Would you like to continue with the Consolidation Method? (y/n)");
-                    while (!char.TryParse(Console.ReadLine().ToUpper(), out input) || (input != 'Y' && input != 'N'))
-                    {
-                        Console.WriteLine("Please input a valid answer");
-                    }
-                    if (input == 'N')
-                        return;
-                    else
-                    {
-                        for (int i = 0; i < debt.Count; i++)
-                        {
-                            amount += debt[i].DebtAmount;
-                            averageInterest += debt[i].IntrestRate;
-                            minimumTotalPayment += debt[i].MinimumPayment;
-                        }
-                        averageInterest = averageInterest / debt.Count;
-                        totalPayment = amount;
-                        while (amount != 0)
-                        {
-                            j++;
-                            amount += (amount * (averageInterest / 100));
-                            totalPayment += (amount * (averageInterest / 100));
-                            if (amount <= minimumTotalPayment)
-                            {
-                                minimumTotalPayment = amount;
-                            }
-                            amount -= minimumTotalPayment;
-                        }
-                        Console.WriteLine("total: {0:C}", totalPayment);
-                        Console.WriteLine($"months needed to pay: {j}");
-                    }
-                }
-
-
 
     }
 }
