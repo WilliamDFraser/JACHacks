@@ -1,5 +1,3 @@
-using System.Globalization;
-
 namespace DebtEliminator
 {
 
@@ -11,6 +9,9 @@ namespace DebtEliminator
             List<DebtType> List_Of_Debts = new List<DebtType>();
             char Input;
             byte methodSelector = 0;
+
+            string name;
+            decimal amount, interest, minimumPayment;
 
             //bool Add_More_Debts = true;
             //int Debt_Count = 0;
@@ -60,45 +61,55 @@ namespace DebtEliminator
                 Print_Centered_Title("Debt Eliminator", '*', 3);
                 Console.WriteLine("\n\n\n");
 
-                string name;
-                decimal amount, interest, minimumPayment;
+                Print_Context_Text($"Please enter the data for debt {i}");
 
-                //Print_Context_Text($"Please enter the data for debt {i}");
+                Print_Input_Box("Name of debt:");
+                name = Console.ReadLine();
 
-                //Print_Input_Box("Name of debt:");
-                //name = Console.ReadLine();
+                Print_Input_Box("Amount left to pay:", Min_Width: 40);
+                while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
+                {
 
-                name = Get_Valid_Input("Name of debt : ", Validate: s => !string.IsNullOrWhiteSpace(s), ErrorMsg: "Name cannot be empty");
-
-                amount = Get_Valid_Decimal_Input("Amount left to pay : ", Min_Value: 0.01m, ErrorMsg: "Please enter a positive amount");
-
-                interest = Get_Valid_Decimal_Input("Monthly interest rate (%) : ", Min_Value: 0, ErrorMsg: "Interest rate cannot be negative");
-
-                minimumPayment = Get_Valid_Decimal_Input("Minimum Monthly Payment : ", Min_Value: 0.01m, ErrorMsg: "Payment must be positive");
-
-
-                //Print_Input_Box("Amount left to pay:", Min_Width: 40);
-                //while (!decimal.TryParse(Console.ReadLine(), out amount) || amount <= 0)
-                //{               
-                //    Print_Input_Box("Invalid input! Please enter a positive number.");            
-                //    Console.Write("Invalid input! Please enter a positive number.");
-                //}
                 
-                //Print_Input_Box("Monthly interest rate:");       
-                //Print_Input_Box("interest rate:");
+                    Print_Input_Box("Invalid input! Please enter a positive number.");
+              
 
-                //while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0
-                //{             
-                //    Print_Input_Box("Please input a valid answer");                
-                //    Print_Context_Text("Please input a valid answer");
-                //}
-                //Print_Input_Box("Minimum Monthly Payment:");
 
-                //while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
-                //{                 
-                //    Print_Input_Box("Please input a valid answer");           
-                //    Print_Context_Text("Please input a valid answer");
-                //}
+                    Console.Write("Invalid input! Please enter a positive number.");
+
+                }
+
+
+            
+                Print_Input_Box("Monthly interest rate:");
+         
+
+                Print_Input_Box("interest rate:");
+
+                while (!decimal.TryParse(Console.ReadLine(), out interest) || interest < 0)
+
+                {
+
+                
+
+
+                    Print_Input_Box("Please input a valid answer");
+                
+                    Print_Context_Text("Please input a valid answer");
+
+                }
+
+                Print_Input_Box("Minimum Monthly Payment:");
+
+                while (!decimal.TryParse(Console.ReadLine(), out minimumPayment) || minimumPayment <= 0)
+                {
+                 
+                    Print_Input_Box("Please input a valid answer");
+                  
+
+                    Print_Context_Text("Please input a valid answer");
+
+                }
 
                 //Call debt type constructor
                 DebtType debt = new DebtType(name, amount, interest, minimumPayment);
